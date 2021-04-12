@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/10 18:37:11 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/12 18:40:14 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,41 @@ int main(void)
 		return (1);
 	}
 
-	t_libui_window window;
+	t_libui_window	window;
 
 	libui_window_init(&window);
-	libui_window_set_size(&window, 300, 100);
+	libui_window_set_size(&window, 500, 500);
 	libui_window_set_title(&window, "Hello There");
 	if (!libui_window_create(&ui_env, &window))
 	{
 		printf("ERROR : %s\n", libui_get_error());
 		return (1);
 	}
+
+	// t_libui_window	window2;
+
+	// libui_window_init(&window2);
+	// libui_window_set_size(&window2, 100, 300);
+	// libui_window_set_title(&window2, "Hello There 2");
+	// if (!libui_window_create(&ui_env, &window2))
+	// {
+	// 	printf("ERROR : %s\n", libui_get_error());
+	// 	return (1);
+	// }
+
+/*
+**	To do:
+**		Expose the api functions for creating a button,
+**		Make a drawing loop to see the button
+*/
+
+	t_libui_component	*new_button;
+	t_libui_component	*new_div;
+
+	new_button = libui_create_button_default();
+	new_div = libui_create_div_default();
+	libui_window_insert_component(&window, new_div);
+	libui_component_insert_component(new_div, new_button);
 	libui_main_loop(&ui_env);
 	return (0);
 }

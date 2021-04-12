@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
+#    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/03 17:30:55 by abiri             #+#    #+#              #
-#    Updated: 2021/04/10 18:35:56 by abiri            ###   ########.fr        #
+#    Updated: 2021/04/12 18:36:24 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,15 @@ all: $(NAME)
 SOURCE_FILES = libui.c\
 			   errors.c\
 			   windows.c\
-			   loop.c
+			   loop.c\
+			   events.c\
+			   element_getters.c\
+			   events_handlers_map.c\
+			   events_mouse.c\
+			   draw.c\
+			   components/default.c\
+			   components/button/constructor.c\
+			   components/div/constructor.c
 
 HEADER_FILES = libui.h
 
@@ -55,7 +63,8 @@ $(OBJECTS): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INCLUDES) | $(OBJECT_DIRS)
 	$(CC) $(FLAGS) $(INCS) -c $< -o $@
 
 $(OBJECT_DIRS):
-	@-mkdir $(OBJECT_DIRS)
+	@echo "DIR "$(OBJECT_DIRS)
+	@-mkdir -p $(OBJECT_DIRS)
 
 .PHONY: clean
 clean: $(CLEAN_RULES)
@@ -70,5 +79,9 @@ fclean: $(FCLEAN_RULES)
 .PHONY: re
 re: fclean all
 
+.PHONY: testclean
+testclean:
+	@-rm -rf $(TEST_NAME)
+
 .PHONY: retest
-retest: fclean test
+retest: testclean test

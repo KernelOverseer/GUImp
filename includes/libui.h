@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/10 18:38:23 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/12 18:36:16 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # include "ft_simplesdl.h"
 # include "libft.h"
 # include "ttslist.h"
+# include "events.h"
+# include "style.h"
+# include "components.h"
 
 /*
 **================================ STRUCTS ====================================
@@ -41,8 +44,21 @@ typedef struct	s_libui_window
 	SDL_Window				*sdl_window;
 	SDL_Renderer			*sdl_renderer;
 	SDL_Texture				*sdl_texture;
+	t_sdl_image				*main_image;
+	t_libui_component		*focused_component;
+	t_list_head				components;
 	t_libui_window_props	props;
 }				t_libui_window;
+
+typedef int		(*t_libui_event_dispatcher)(t_libui_env *env, t_libui_window *window, SDL_Event *e); 
+
+typedef struct  s_libui_event_dispatcher_map
+{
+    Uint32                      event_type;
+    t_libui_event_dispatcher    dispatcher;
+}               t_libui_event_dispatcher_map;
+
+extern const    t_libui_event_dispatcher_map    g_libui_event_dispatcher_map[LIBUI_NATIVE_EVENT_COUNT];
 
 /*
 **============================== LIBRARY API ==================================
@@ -53,6 +69,19 @@ typedef struct	s_libui_window
 */
 
 int		libui_init(t_libui_env *env);
+
+/*
+**	Constructors
+*/
+
+t_libui_component   *libui_create_button_default(void);
+t_libui_component   *libui_component_button_new(t_libui_component_props props);
+t_libui_component   *libui_create_div_default(void);
+t_libui_component   *libui_component_div_new(t_libui_component_props props);
+int					libui_window_insert_component(t_libui_window *win,
+	t_libui_component *component);
+int				    libui_component_insert_component(t_libui_component *parent,
+    		t_libui_component *child);
 
 /*
 **	Events
@@ -84,7 +113,30 @@ char	*libui_get_error(void);
 **	Initialization
 */
 
+/*
+**	Event management
+*/
 
+int		libui_event_poll(t_libui_env *env);
+int     libui_event_dispatcher_on_mouse_click(t_libui_env *env, t_libui_window *window,
+                        SDL_Event *e);
+int     libui_event_dispatcher_on_mouse_release(t_libui_env *env, t_libui_window *window,
+                        SDL_Event *e);
+int     libui_event_dispatcher_on_mouse_move(t_libui_env *env, t_libui_window *window,
+                        SDL_Event *e);
+
+/*
+**	Drawing
+*/
+
+int		libui_draw_loop(t_libui_env *env);
+
+/*
+**	Helper Functions
+*/
+
+t_libui_window  *libui_window_get_by_index(t_libui_env *env, int id);
+t_libui_event_dispatcher    libui_event_get_dispatcher_from_type(Uint32 type);
 
 /*
 **	Error Management

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 18:33:31 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:17:57 by abiri            ###   ########.fr       */
+/*   Created: 2021/04/12 14:32:35 by abiri             #+#    #+#             */
+/*   Updated: 2021/04/12 15:45:33 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libui.h"
+#ifndef EVENTS_H
+# define EVENTS_H
+# define LIBUI_NATIVE_EVENT_COUNT   3
 
-int	libui_main_loop(t_libui_env *env)
+typedef struct  s_libui_event
 {
-	SDL_Event	e;
+    int         type;
+    int         mouseX;
+    int         mouseY;
+    int         keycode;
+}               t_libui_event;
 
-	while (!env->quit)
-	{
-		while (libui_event_poll(env))
-		{
-			// do something
-		}
-		libui_draw_loop(env);
-	}
-	return (1);
-}
+typedef int (*t_libui_event_handler)(void *component, t_libui_event event_data, void *args);
+
+#endif

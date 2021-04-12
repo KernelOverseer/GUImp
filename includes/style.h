@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop.c                                             :+:      :+:    :+:   */
+/*   style.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 18:33:31 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:17:57 by abiri            ###   ########.fr       */
+/*   Created: 2021/04/12 14:26:57 by abiri             #+#    #+#             */
+/*   Updated: 2021/04/12 14:30:59 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libui.h"
+#ifndef STYLE_H
+# define STYLE_H
 
-int	libui_main_loop(t_libui_env *env)
+typedef unsigned int t_color;
+
+typedef struct  s_libui_component_style
 {
-	SDL_Event	e;
+    t_color     color;
+    t_color     background_color;
+    int         width;
+    int         height;
+}               t_libui_component_style;
 
-	while (!env->quit)
-	{
-		while (libui_event_poll(env))
-		{
-			// do something
-		}
-		libui_draw_loop(env);
-	}
-	return (1);
-}
+
+#endif

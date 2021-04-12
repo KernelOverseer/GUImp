@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:52:56 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/10 18:32:14 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/12 18:22:46 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void			libui_window_init(t_libui_window *win)
 		.pos_y = SDL_WINDOWPOS_UNDEFINED,
 		.sdl_flags = SDL_WINDOW_SHOWN
 	};
+	ttslist_init(&win->components);
 }
 
 static int		libui_window_create_renderer_texture(t_libui_window *win)
@@ -88,6 +89,22 @@ int				libui_window_create(t_libui_env *env, t_libui_window *win)
 		libui_set_error("Cannot get texture from window\n");
 		return (0);
 	}
+	win->main_image = newimage(win->props.width, win->props.height);
+	if (!win->main_image)
+	{
+		libui_set_error("Cannot allocate image for window\n");
+		return (0);
+	}
 	env->windows.push(&(env->windows), win);
+	return (1);
+}
+
+int				libui_window_insert_component(t_libui_window *win,
+	t_libui_component *component)
+{
+	if (!component || !win)
+		return (0);
+	component->window = win;
+	win->components.push(&(win->components), component);
 	return (1);
 }
