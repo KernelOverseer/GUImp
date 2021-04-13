@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:25:05 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 16:45:02 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:05:28 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include "ttslist.h"
 # include "style.h"
 # include "events.h"
+
+enum    e_libui_component_states
+{
+    LIBUI_COMPONENT_STATE_IDLE, LIBUI_COMPONENT_STATE_HOVERED,
+    LIBUI_COMPONENT_STATE_ACTIVE
+};
 
 /*
 **  Each component has events, which are
@@ -34,6 +40,7 @@ typedef struct  s_libui_component_events
     t_libui_event_handler   on_release;
     t_libui_event_handler   on_mouse_enter;
     t_libui_event_handler   on_mouse_out;
+    t_libui_event_handler   on_mouse_move;
     t_libui_event_handler   on_key_down;
     t_libui_event_handler   on_key_up;
 }               t_libui_component_events;
@@ -45,6 +52,7 @@ typedef struct  s_libui_component_props
     int                         posY;
     int                         width;
     int                         height;
+    int                         state;
 }               t_libui_component_props;
 
 typedef struct s_libui_component t_libui_component;
@@ -57,9 +65,11 @@ typedef struct s_libui_component
     t_libui_component_props     props;
     t_libui_component_draw      draw;
     t_libui_component_events    events;
+    t_libui_component_events    user_events;
     t_libui_component           *parent;
     t_list_head                 children;
     struct s_libui_window       *window;
+    void                        *data;
 }               t_libui_component;
 
 

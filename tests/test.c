@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:40:14 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:58:55 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 	// t_libui_window	window2;
 
 	// libui_window_init(&window2);
-	// libui_window_set_size(&window2, 100, 300);
+	// libui_window_set_size(&window2, 500, 500);
 	// libui_window_set_title(&window2, "Hello There 2");
 	// if (!libui_window_create(&ui_env, &window2))
 	// {
@@ -51,12 +51,24 @@ int main(void)
 */
 
 	t_libui_component	*new_button;
+	t_libui_component	*new_button2;
 	t_libui_component	*new_div;
 
 	new_button = libui_create_button_default();
+	new_button2 = libui_create_button_default();
+	new_button2->props.posX += 100;
 	new_div = libui_create_div_default();
 	libui_window_insert_component(&window, new_div);
 	libui_component_insert_component(new_div, new_button);
+	libui_component_insert_component(new_div, new_button2);
+
+
+	// new_button = libui_create_button_default();
+	// new_button2 = libui_create_button_default();
+	// new_button2->props.posX += 250;
+	// new_div = libui_create_div_default();
+	// libui_component_insert_component(new_div, new_button);
+	// libui_component_insert_component(new_div, new_button2);
 	libui_main_loop(&ui_env);
 	return (0);
 }

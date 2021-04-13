@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:43:34 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:39:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:24:02 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int          libui_component_div_draw(t_libui_component *div,
         .h=div->props.height,
         .w=div->props.width
     }, 0x212121);
-    printf("drew div\n");
     return (1);
 }
 

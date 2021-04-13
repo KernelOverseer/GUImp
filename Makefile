@@ -6,7 +6,7 @@
 #    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/03 17:30:55 by abiri             #+#    #+#              #
-#    Updated: 2021/04/12 18:36:24 by abiri            ###   ########.fr        #
+#    Updated: 2021/04/13 19:08:27 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,11 @@ SOURCE_FILES = libui.c\
 			   draw.c\
 			   components/default.c\
 			   components/button/constructor.c\
+			   components/button/event_mouse_in.c\
+			   components/button/event_mouse_out.c\
+			   components/button/event_mouse_move.c\
+			   components/button/event_mouse_click.c\
+			   components/button/event_mouse_release.c\
 			   components/div/constructor.c
 
 HEADER_FILES = libui.h

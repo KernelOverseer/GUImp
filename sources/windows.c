@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:52:56 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:22:46 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 19:13:43 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void			libui_window_set_size(t_libui_window *win,
 
 void			libui_window_init(t_libui_window *win)
 {
+	ft_bzero(win, sizeof(t_libui_window));
 	win->props = (t_libui_window_props){.title=NULL,
 		.width=500,
 		.height=500,

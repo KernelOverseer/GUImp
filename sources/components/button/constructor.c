@@ -6,26 +6,32 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 16:36:55 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:40:26 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 19:09:55 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
+#include "components/button/button.h"
 
 static int          libui_component_button_draw(t_libui_component *button,
                     void * args)
 {
+    Uint32  color;
     (void)args;
 
+    color = 0xFF00FF;
     if (!button->window)
         return (0);
+    if (button->props.state == LIBUI_COMPONENT_STATE_HOVERED)
+        color = 0xcecece;
+    if (button->props.state == LIBUI_COMPONENT_STATE_ACTIVE)
+        color = 0xFF0000;
     ft_sdl_image_rect(button->window->main_image, (t_rect){
         .x=button->props.posX,
         .y=button->props.posY,
         .h=button->props.height,
         .w=button->props.width
-    }, 0xFF00FF);
-    printf("drew button\n");
+    }, color);
     return (1);
 }
 
@@ -38,6 +44,11 @@ t_libui_component   *libui_component_button_new(t_libui_component_props props)
     ttslist_init(&new_component->children);
     new_component->props = props;
     new_component->draw = &libui_component_button_draw;
+    new_component->events.on_mouse_enter = libui_component_button_event_on_mouse_in;
+    new_component->events.on_mouse_out = libui_component_button_event_on_mouse_out;
+    new_component->events.on_click = libui_component_button_event_on_mouse_click;
+    new_component->events.on_release = libui_component_button_event_on_mouse_release;
+    new_component->events.on_mouse_move = libui_component_button_event_on_mouse_move;
     return (new_component);
 }
 

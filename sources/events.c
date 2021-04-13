@@ -6,11 +6,29 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:44:54 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 15:56:53 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:19:54 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
+
+int         libui_component_apply_event(t_libui_component *component,
+    t_libui_event_handler handler, t_libui_event event)
+{
+    if (component && handler)
+        return (handler(component, event, NULL));
+    return (0);
+}
+
+t_libui_event libui_event_create_from_sdl(SDL_Event *e)
+{
+    t_libui_event result;
+
+    result.type = e->type;
+    SDL_GetMouseState(&result.mouse_x, &result.mouse_y);
+    result.scancode = e->key.keysym.scancode;
+    return (result);
+}
 
 int libui_event_dispatch_for_window(t_libui_env *env, SDL_Event *e,
     t_libui_window *window)

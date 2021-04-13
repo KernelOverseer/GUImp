@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:36:16 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:41:00 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ typedef struct	s_libui_window
 	SDL_Renderer			*sdl_renderer;
 	SDL_Texture				*sdl_texture;
 	t_sdl_image				*main_image;
-	t_libui_component		*focused_component;
 	t_list_head				components;
 	t_libui_window_props	props;
+	t_libui_component		*focused_component;
+	t_libui_component		*hovered_component;
 }				t_libui_window;
 
 typedef int		(*t_libui_event_dispatcher)(t_libui_env *env, t_libui_window *window, SDL_Event *e); 
@@ -117,6 +118,9 @@ char	*libui_get_error(void);
 **	Event management
 */
 
+int         libui_component_apply_event(t_libui_component *component,
+    t_libui_event_handler handler, t_libui_event event);
+t_libui_event libui_event_create_from_sdl(SDL_Event *e);
 int		libui_event_poll(t_libui_env *env);
 int     libui_event_dispatcher_on_mouse_click(t_libui_env *env, t_libui_window *window,
                         SDL_Event *e);
@@ -135,6 +139,8 @@ int		libui_draw_loop(t_libui_env *env);
 **	Helper Functions
 */
 
+t_libui_component   *libui_event_get_hovered_component_in_window(
+    t_libui_window *window, int mouse_x, int mouse_y);
 t_libui_window  *libui_window_get_by_index(t_libui_env *env, int id);
 t_libui_event_dispatcher    libui_event_get_dispatcher_from_type(Uint32 type);
 

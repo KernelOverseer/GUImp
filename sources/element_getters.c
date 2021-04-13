@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 15:09:21 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 16:43:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/13 17:35:16 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,43 @@ int                 libui_helpers_is_point_in_rect(t_rect   rect, int x, int y)
 **      Will be back after a correction
 */
 
-t_libui_component   *libui_window_get_active_component(t_libui_window *window,
-    int mouse_x, int mouse_y)
+t_libui_component   *libui_event_get_hovered_sub_component(
+    t_libui_component *parent, int mouse_x, int mouse_y)
 {
-    if (!libui_helpers_is_point_in_rect(
-        (t_rect){window->props.height, window->props.width,
-        window->props.pos_x, window->props.pos_y}, mouse_x, mouse_y))
-        return (NULL);
+    t_list_head         children;
+    t_libui_component   *child;
+    t_libui_component   *result;
 
+    children = parent->children;
+    children.iterator = children.first;
+    while ((child = ttslist_iter_content(&children)))
+    {
+        if ((result = libui_event_get_hovered_sub_component(child,
+            mouse_x, mouse_y)))
+            return (result);
+    }
+    if (libui_helpers_is_point_in_rect((t_rect){
+        .h=parent->props.height, .w=parent->props.width,
+        .x=parent->props.posX, .y=parent->props.posY}, mouse_x, mouse_y))
+        return (parent);
+    return (NULL);
+}
+
+t_libui_component   *libui_event_get_hovered_component_in_window(
+    t_libui_window *window, int mouse_x, int mouse_y)
+{
+    t_list_head         components;
+    t_libui_component   *component;
+    t_libui_component   *result;
+
+    components = window->components;
+    components.iterator = components.first;
+    while ((component = ttslist_iter_content(&components)))
+    {
+        if ((result = libui_event_get_hovered_sub_component(component,
+            mouse_x, mouse_y)))
+            return (result);
+    }
     return (NULL);
 }
 
