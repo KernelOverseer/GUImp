@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/13 18:58:55 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/26 11:32:06 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ int main(void)
 	libui_component_insert_component(new_div, new_button);
 	libui_component_insert_component(new_div, new_button2);
 
+	t_libui_component	*text;
 
+	text = libui_create_text_default();
+	libui_component_insert_component(new_div, text);
 	// new_button = libui_create_button_default();
 	// new_button2 = libui_create_button_default();
 	// new_button2->props.posX += 250;

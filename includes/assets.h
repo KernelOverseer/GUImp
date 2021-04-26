@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libui.c                                            :+:      :+:    :+:   */
+/*   assets.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 09:28:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/26 11:38:23 by abiri            ###   ########.fr       */
+/*   Created: 2021/04/26 10:56:25 by abiri             #+#    #+#             */
+/*   Updated: 2021/04/26 11:28:18 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libui.h"
+#ifndef ASSETS_H
+# define ASSETS_H
+# define FONT_TYPES_COUNT 1
+# include "libui.h"
 
-int libui_init(t_libui_env *env)
+enum    e_libui_font_weights
 {
-	ft_bzero(env, sizeof(t_libui_env));
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		libui_set_error("Cannot initialize the graphical server\n");
-		return (0);
-	}
-	if (TTF_Init() < 0)
-	{
-		libui_set_error("Cannot initialize font library\n");
-		return (0);
-	}
-	ttslist_init(&env->windows);
-	ttslist_init(&env->assets.fonts);
-	return (1);
-}
+    LIBUI_FONT_REGULAR
+};
+
+
+typedef struct  s_libui_asset_font
+{
+    char        *name;
+    TTF_Font    *fonts[FONT_TYPES_COUNT];
+}               t_libui_asset_font;
+
+
+typedef struct  s_libui_assets
+{
+    t_list_head fonts;
+}               t_libui_assets;
+
+#endif

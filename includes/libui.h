@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libui.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/13 18:41:00 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/26 11:42:58 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "events.h"
 # include "style.h"
 # include "components.h"
+# include "assets.h"
+# include "components/text/text.h"
 
 /*
 **================================ STRUCTS ====================================
@@ -26,6 +28,7 @@
 typedef	struct	s_libui_env
 {
 	t_list_head		windows;
+	t_libui_assets	assets;
 	unsigned char	quit;
 }				t_libui_env;
 
@@ -49,6 +52,7 @@ typedef struct	s_libui_window
 	t_libui_window_props	props;
 	t_libui_component		*focused_component;
 	t_libui_component		*hovered_component;
+	t_libui_env				*env;
 }				t_libui_window;
 
 typedef int		(*t_libui_event_dispatcher)(t_libui_env *env, t_libui_window *window, SDL_Event *e); 
@@ -143,6 +147,8 @@ t_libui_component   *libui_event_get_hovered_component_in_window(
     t_libui_window *window, int mouse_x, int mouse_y);
 t_libui_window  *libui_window_get_by_index(t_libui_env *env, int id);
 t_libui_event_dispatcher    libui_event_get_dispatcher_from_type(Uint32 type);
+t_libui_asset_font  *libui_asset_get_font(t_libui_env *env, char *name);
+int libui_draw_image_blit(t_sdl_image *canvas, t_sdl_image *to_draw, t_rect off);
 
 /*
 **	Error Management

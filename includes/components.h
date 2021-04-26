@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   components.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 14:25:05 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/13 18:05:28 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/26 14:06:21 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,15 @@ typedef struct  s_libui_component_events
 
 typedef struct  s_libui_component_props
 {
-    t_libui_component_style     style;
-    int                         posX;
-    int                         posY;
-    int                         width;
-    int                         height;
-    int                         state;
+    t_libui_component_style             style;
+    t_libui_component_style             computed_style;
+    int                                 posX;
+    int                                 posY;
+    int                                 width;
+    int                                 height;
+    int                                 state;
+    t_sdl_image                         render_image;
+    int                                 render_refresh;
 }               t_libui_component_props;
 
 typedef struct s_libui_component t_libui_component;

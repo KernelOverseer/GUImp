@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   windows.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 17:52:56 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/13 19:13:43 by abiri            ###   ########.fr       */
+/*   Updated: 2021/04/26 11:25:13 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ int				libui_window_create(t_libui_env *env, t_libui_window *win)
 		libui_set_error("Cannot allocate image for window\n");
 		return (0);
 	}
+	win->env = env;
 	env->windows.push(&(env->windows), win);
 	return (1);
 }

@@ -40,7 +40,7 @@ ifeq ($(OS_TYPE), Linux)
 	SDL_LINK = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 endif
 
-LINKS += -L $(LIBS_DIR)/FT_SimpleSDL -lftsimplesdl -L $(LIBS_DIR)/libCplus -lc+ $(SDL_LINK)
+LINKS += -L $(LIBS_DIR)/FT_SimpleSDL -lftsimplesdl -L $(LIBS_DIR)/libCplus -lC+ $(SDL_LINK)
 INCS += -I $(LIBS_DIR)/FT_SimpleSDL/inc -I $(LIBS_DIR)/libCplus/includes $(SDL_INC)
 
 # MAIN RULES

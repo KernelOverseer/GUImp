@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
+#    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/03 17:30:55 by abiri             #+#    #+#              #
-#    Updated: 2021/04/13 19:08:27 by abiri            ###   ########.fr        #
+#    Updated: 2021/04/26 11:45:00 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ SOURCE_FILES = libui.c\
 			   events_handlers_map.c\
 			   events_mouse.c\
 			   draw.c\
+			   asset_management.c\
+			   components/draw_helper.c\
 			   components/default.c\
 			   components/button/constructor.c\
 			   components/button/event_mouse_in.c\
@@ -33,7 +35,8 @@ SOURCE_FILES = libui.c\
 			   components/button/event_mouse_move.c\
 			   components/button/event_mouse_click.c\
 			   components/button/event_mouse_release.c\
-			   components/div/constructor.c
+			   components/div/constructor.c\
+			   components/text/constructor.c
 
 HEADER_FILES = libui.h
 
@@ -48,6 +51,9 @@ OBJECT_DIRS = $(sort $(dir $(OBJECTS)))
 REQUIRED_RULES =
 CLEAN_RULES =
 FCLEAN_RULES =
+ifeq ($(shell uname -s), Darwin)
+	HEADER_PAD = -headerpad_max_install_names
+endif
 
 include $(LIBS_DIR)/libraries_linking.mk
 
@@ -56,7 +62,7 @@ $(NAME): $(REQUIRED_RULES) $(OBJECTS)
 	$(RANLIB) $(RANLIB_FLAGS) $@
 
 $(TEST_NAME): $(NAME)
-	$(CC) -headerpad_max_install_names $(TEST_DIR)/$@.c $(INCS) $(LINKS) -L. -lui -o $@
+	$(CC) $(HEADER_PAD) $(TEST_DIR)/$@.c $(INCS) -L. -lui $(LINKS) -o $@
 ifeq ($(shell uname -s), Darwin)
 	@-install_name_tool -change @rpath/SDL2.framework/Versions/A/SDL2 @loader_path/$(SDL2) $@
 	@-install_name_tool -change @rpath/SDL2_image.framework/Versions/A/SDL2_image @loader_path/$(SDL2_IMAGE) $@
