@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 18:33:31 by abiri             #+#    #+#             */
-/*   Updated: 2021/04/12 18:17:57 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/04 15:05:03 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/04 18:33:54 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-int	libui_main_loop(t_libui_env *env)
+int libui_main_loop(t_libui_env *env)
 {
-	SDL_Event	e;
-
-	while (!env->quit)
-	{
-		while (libui_event_poll(env))
-		{
-			// do something
-		}
-		libui_draw_loop(env);
-	}
-	return (1);
+    while (!env->quit)
+    {
+        while (libui_event_poll(env))
+            ;
+        libui_draw(env);
+    }
+    return (1);
 }

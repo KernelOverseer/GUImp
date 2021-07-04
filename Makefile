@@ -17,28 +17,9 @@ all: $(NAME)
 
 # default config
 
-SOURCE_FILES = libui.c\
-			   errors.c\
-			   windows.c\
-			   loop.c\
-			   events.c\
-			   element_getters.c\
-			   events_handlers_map.c\
-			   events_mouse.c\
-			   draw.c\
-			   asset_management.c\
-			   components/draw_helper.c\
-			   components/default.c\
-			   components/button/constructor.c\
-			   components/button/event_mouse_in.c\
-			   components/button/event_mouse_out.c\
-			   components/button/event_mouse_move.c\
-			   components/button/event_mouse_click.c\
-			   components/button/event_mouse_release.c\
-			   components/div/constructor.c\
-			   components/text/constructor.c
+SOURCE_FILES = $(shell ls $(SRC_DIR))
 
-HEADER_FILES = libui.h
+HEADER_FILES = $(shell ls $(INC_DIR))
 
 # this part is automatic
 

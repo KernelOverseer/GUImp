@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "type_traits": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "libui.h": "c"
     }
 }

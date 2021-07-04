@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    make_config.mk                                     :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
+#    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/10 09:47:18 by abiri             #+#    #+#              #
-#    Updated: 2021/04/10 16:31:20 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/04 19:22:45 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR = ar
 AR_FLAGS = rc
 RANLIB = ranlib
 RANLIB_FLAGS =
-FLAGS = -g -Ofast
+FLAGS = -g -Wall -Werror -Wextra
 
 #directories and paths
 
