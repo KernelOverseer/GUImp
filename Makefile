@@ -6,7 +6,7 @@
 #    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/03 17:30:55 by abiri             #+#    #+#              #
-#    Updated: 2021/04/26 11:45:00 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/06 00:50:05 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,16 @@ all: $(NAME)
 
 # default config
 
-SOURCE_FILES = $(shell ls $(SRC_DIR))
+SOURCE_FILES = $(shell find $(SRC_DIR) -type f | sed 's/$(SRC_DIR)\///g')
 
-HEADER_FILES = $(shell ls $(INC_DIR))
+HEADER_FILES = $(shell find $(INC_DIR) -type f | sed 's/$(INC_DIR)\///g')
 
 # this part is automatic
-
 SOURCES = $(addprefix $(SRC_DIR)/, $(SOURCE_FILES))
 OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCE_FILES:.c=.o))
 INCLUDES = $(addprefix $(INC_DIR)/, $(HEADER_FILES))
 LINKS =
-INCS = -I $(INC_DIR)
+INCS = $(addprefix -I , $(shell find $(INC_DIR) -type d))
 OBJECT_DIRS = $(sort $(dir $(OBJECTS)))
 REQUIRED_RULES =
 CLEAN_RULES =

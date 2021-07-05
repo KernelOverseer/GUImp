@@ -6,7 +6,7 @@
 #    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/10 09:47:18 by abiri             #+#    #+#              #
-#    Updated: 2021/07/04 19:22:45 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/06 00:13:51 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ FLAGS = -g -Wall -Werror -Wextra
 
 #directories and paths
 
-INC_DIR = ./includes
-SRC_DIR = ./sources
+INC_DIR = includes
+SRC_DIR = sources
 LIBS_DIR = ./libraries
 OBJ_DIR = ./objects
 TEST_DIR = ./tests

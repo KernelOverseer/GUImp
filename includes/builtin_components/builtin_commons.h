@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   style.h                                            :+:      :+:    :+:   */
+/*   builtin_commons.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 20:53:42 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/06 00:28:26 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/06 00:30:07 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/06 00:42:26 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STYLE_H
-# define STYLE_H
+#ifndef BUILTIN_COMMONS_H
+# define BUILTIN_COMMONS_H
+# include "libui.h"
 
-typedef struct  s_libui_style
-{
-    int         width;
-    int         height;
-    int         pos_x;
-    int         pos_y;
-    Uint32      background_color;
-}               t_libui_style;
+int libui_builtin_draw_background(t_libui_component *component);
 
 #endif

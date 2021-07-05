@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   style.h                                            :+:      :+:    :+:   */
+/*   builtin_draw_tools.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 20:53:42 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/06 00:28:26 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/06 00:27:36 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/06 00:29:58 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STYLE_H
-# define STYLE_H
+#include "libui.h"
 
-typedef struct  s_libui_style
+int libui_builtin_draw_background(t_libui_component *component)
 {
-    int         width;
-    int         height;
-    int         pos_x;
-    int         pos_y;
-    Uint32      background_color;
-}               t_libui_style;
-
-#endif
+    ft_sdl_image_rect(component->window->main_image, (t_rect){
+        component->style.pos_x, component->style.pos_y,
+        component->style.width, component->style.height
+    }, component->style.background_color);
+    return (0);
+}

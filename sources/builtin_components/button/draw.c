@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   style.h                                            :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/03 20:53:42 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/06 00:28:26 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/06 00:22:41 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/06 00:37:47 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STYLE_H
-# define STYLE_H
+#include "libui.h"
 
-typedef struct  s_libui_style
+int libui_button_draw(t_libui_component *component)
 {
-    int         width;
-    int         height;
-    int         pos_x;
-    int         pos_y;
-    Uint32      background_color;
-}               t_libui_style;
-
-#endif
+    libui_builtin_draw_background(component);
+    return (0);
+}

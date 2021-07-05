@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:49:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 16:12:18 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 23:54:43 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ struct  s_libui_window
     SDL_Renderer            *sdl_renderer;
     SDL_Texture             *sdl_texture;
     t_sdl_image             *main_image;
+    t_libui_window_events   events;
     struct s_libui_env      *env;
     t_libui_component       *focused_component;
     t_list_head             components;

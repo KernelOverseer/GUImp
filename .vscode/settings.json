@@ -3,6 +3,9 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "libui.h": "c",
-        "sdl.h": "c"
+        "sdl.h": "c",
+        "builtin_commons.h": "c",
+        "components.h": "c",
+        "button.h": "c"
     }
 }
