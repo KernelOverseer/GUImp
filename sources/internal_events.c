@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 15:09:23 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 19:56:46 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 19:57:33 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,23 @@ int libui_event_dispatch(t_libui_env *env, SDL_Event *e)
     return (0);
 }
 
-t_libui_internal_event_handler  libui_event_get_handler(
+t_libui_window_event_handler  libui_event_get_handler(
     const t_libui_event_handler_map *map, Uint32 type)
+{
+    int i;
+
+    i = 0;
+    while (map[i].handler != NULL)
+    {
+        if (map[i].type == type)
+            return (map[i].handler);
+        i++;
+    }
+    return (NULL);
+}
+
+t_libui_event_handler    libui_component_event_get_handler(
+    const t_libui_component_event_handler_map *map, Uint32 type)
 {
     int i;
 

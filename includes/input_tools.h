@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   input_tools.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 18:12:07 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 19:16:42 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/05 16:56:00 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/05 16:58:12 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libui.h"
+#ifndef INPUT_TOOLS_H
+# define INPUT_TOOLS_H
+# include "libui.h"
 
-static void libui_draw_windows(t_libui_env *env)
-{
-    t_list_head     windows_list;
-    t_libui_window  *window;
+int libui_mouse_is_in_rect(int x, int y, t_rect rect);
 
-    windows_list = env->windows;
-    windows_list.iterator = windows_list.first;
-    while ((window = ttslist_iter_content(&windows_list)))
-        libui_draw_window(window);
-}
-
-void            libui_draw(t_libui_env *env)
-{
-    libui_draw_windows(env);
-}
+#endif

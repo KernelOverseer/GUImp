@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 23:04:16 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 19:43:41 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 17:47:01 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int  libui_window_create_render_texture(t_libui_window *win)
 
 {
     if (!(win->sdl_renderer = SDL_CreateRenderer(win->sdl_window, -1,
-        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
+        SDL_RENDERER_ACCELERATED))) // SDL_RENDERER_PRESENTVSYNC makes events slower ???
     {
         libui_set_error("Cannot create renderer for window");
         return (0);

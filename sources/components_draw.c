@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 19:36:12 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 19:48:10 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 19:38:20 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,29 @@
 int libui_component_draw_default(t_libui_component *component)
 {
     t_libui_window  *window;
+    Uint32          color;
 
-    printf("IN COMPONENT DRAW\n");
+    color = 0xFF00FF;
     window = component->window;
+    if (window->env->hovered_component == component)
+        color = 0x00FF00;
+    if (window->env->active_component == component)
+        color = 0x0000FF;
+    if (window->env->focused_component == component)
+    {
+        ft_sdl_image_rect(window->main_image, (t_rect){component->style.pos_x-1,
+        component->style.pos_y-1, component->style.width+2, component->style.height+2},
+        0xFFFFFF);
+    }
+    else if (window->focused_component == component)
+    {
+        ft_sdl_image_rect(window->main_image, (t_rect){component->style.pos_x-1,
+        component->style.pos_y-1, component->style.width+2, component->style.height+2},
+        0x0000FF);
+    }
     ft_sdl_image_rect(window->main_image, (t_rect){component->style.pos_x,
         component->style.pos_y, component->style.width, component->style.height},
-        0xFF00FF);
+        color);
     return (0);
 }
 

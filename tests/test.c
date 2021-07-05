@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 19:54:25 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 19:44:04 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,19 @@ int main(void)
 	libui_window_create(&env, window);
 
 	t_libui_component	*component;
+	t_libui_component	*component2;
 	component = libui_defaults_create_component();
 	libui_window_insert_component(window, component);	
+	component = libui_defaults_create_component();
+	component->style.pos_x += 200;
+	libui_window_insert_component(window, component);	
+	window = libui_defaults_create_window(&env);
+	component = libui_defaults_create_component();
+	libui_window_insert_component(window, component);	
+	component2 = libui_defaults_create_component();
+	component2->style.width = 25;
+	component2->style.height = 25;
+	libui_component_insert_component(component, component2);	
 
 	if (!libui_get_error())
 		printf("SUCCESS INITIALIZING\n");

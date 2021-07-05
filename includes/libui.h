@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 18:36:17 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 18:29:05 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 # include <SDL_ttf.h>
 # include "libft.h"
 # include "ttslist.h"
-# include "typedefs.h"
 # include "ft_simplesdl.h"
+# include "typedefs.h"
+# include "input_tools.h"
 # include "events.h"
 # include "windows.h"
 # include "components.h"
 
 struct  s_libui_env
 {
-    t_sdl_env       *sdl_env;
-    t_libui_window  *focused_window;
-    t_list_head     windows;
-    int         quit;
+    t_sdl_env           *sdl_env;
+    t_list_head         windows;
+    t_libui_window      *active_window;
+    t_libui_component   *active_component;
+    t_libui_component   *hovered_component;
+    t_libui_component   *focused_component;
+    int                 quit;
 };
 
 

@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   mouse_tools.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 18:12:07 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 19:16:42 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/05 16:55:48 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/05 17:30:48 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-static void libui_draw_windows(t_libui_env *env)
+int libui_mouse_is_in_rect(int x, int y, t_rect rect)
 {
-    t_list_head     windows_list;
-    t_libui_window  *window;
-
-    windows_list = env->windows;
-    windows_list.iterator = windows_list.first;
-    while ((window = ttslist_iter_content(&windows_list)))
-        libui_draw_window(window);
-}
-
-void            libui_draw(t_libui_env *env)
-{
-    libui_draw_windows(env);
+    if (x < rect.x || x > rect.x + rect.w ||
+        y < rect.y || y > rect.y + rect.h)
+        return (FALSE);
+    return (TRUE);
 }

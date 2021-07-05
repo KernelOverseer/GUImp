@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:49:30 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 19:50:27 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 17:54:53 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ struct  s_libui_component
     t_libui_window                  *window;
     struct s_libui_component        *parent;
     t_libui_component_draw_handler  draw;
+    t_libui_component_events        events;
     t_list_head                     children;
 };
 

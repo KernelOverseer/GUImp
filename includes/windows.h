@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:49:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/04 18:36:41 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/05 16:12:18 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int         libui_window_insert_component(t_libui_window *window,t_libui_compone
 **  Internal Window API
 */
 
-void        libui_draw_window(t_libui_window *window);
-void        libui_window_draw(t_libui_window *window);
-int         libui_window_resize(t_libui_window *win, int width, int height);
+t_libui_window  *libui_windows_event_get_window(t_libui_env *env, Uint32 window_id);
+void            libui_draw_window(t_libui_window *window);
+void            libui_window_draw(t_libui_window *window);
+int             libui_window_resize(t_libui_window *win, int width, int height);
 #endif
