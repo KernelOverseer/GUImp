@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   style.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:11:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 22:34:26 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:34:23 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,45 +15,33 @@
 static void set_default_regular_style(t_libui_component *button)
 {
     button->raw_styles.regular = (t_libui_raw_style){
-        .width = button->style.width,
-        .height = button->style.height,
+        .width.value.integer = button->style.width,
+        .height.value.integer = button->style.height,
         .pos_x = button->style.pos_x,
         .pos_y = button->style.pos_y,
-        .background_color = DEFAULT_COLOR_BACKGROUND_PRIMARY
+        .background_color.value.integer = DEFAULT_COLOR_BACKGROUND_PRIMARY,
+        .border_weight.value.integer = 0,
+        .border_radius.value.integer = 20
     };
 }
 
 static void set_default_hovered_style(t_libui_component *button)
 {
-    button->raw_styles.hovered = (t_libui_raw_style){
-        .width = button->style.width,
-        .height = button->style.height,
-        .pos_x = button->style.pos_x,
-        .pos_y = button->style.pos_y,
-        .background_color = DEFAULT_COLOR_BACKGROUND_SECONDARY
-    };
+    button->raw_styles.hovered = button->raw_styles.regular;
+    button->raw_styles.hovered.background_color.value.integer = 
+        DEFAULT_COLOR_BACKGROUND_SECONDARY;
 }
 
 static void set_default_active_style(t_libui_component *button)
 {
-    button->raw_styles.active = (t_libui_raw_style){
-        .width = button->style.width,
-        .height = button->style.height,
-        .pos_x = button->style.pos_x,
-        .pos_y = button->style.pos_y,
-        .background_color = DEFAULT_COLOR_BACKGROUND_TERTIARY
-    };
+button->raw_styles.active = button->raw_styles.regular;
+    button->raw_styles.active.background_color.value.integer = 
+        DEFAULT_COLOR_BACKGROUND_TERTIARY;
 }
 
 static void set_default_focused_style(t_libui_component *button)
 {
-    button->raw_styles.focused = (t_libui_raw_style){
-        .width = button->style.width,
-        .height = button->style.height,
-        .pos_x = button->style.pos_x,
-        .pos_y = button->style.pos_y,
-        .background_color = DEFAULT_COLOR_BACKGROUND_PRIMARY
-    };
+    button->raw_styles.focused = button->raw_styles.regular;
 }
 
 void    libui_button_load_style(t_libui_component *button)

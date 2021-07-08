@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 22:29:30 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:33:14 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int main(void)
 	libui_component_insert_component(component, component2);
 	component = libui_new_button((t_libui_style){
 		.background_color=0xCDCDCD,
-		.height=50,
-		.width=100,
-		.pos_x=window->props.width/2 - 50,
-		.pos_y=window->props.height/2 - 25,
+		.height=100,
+		.width=200,
+		.pos_x=window->props.width/2 - 100,
+		.pos_y=window->props.height/2 - 50,
 	});
 	libui_window_insert_component(window, component);
 
