@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 16:19:50 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 19:32:34 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/07 20:37:46 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,12 @@ int libui_components_event_handler_scroll(t_libui_env *env, SDL_Event *e)
 
 int libui_components_event_handler_key_down(t_libui_env *env, SDL_Event *e)
 {
-    t_libui_window  *window;
     (void)e;
     (void)env;
 
-    if (!(window = libui_windows_event_get_window(env, e->wheel.windowID)))
-        return (0);
-    printf("KEY_DOWN\n");
+    if (env->focused_component)
+        return (libui_component_call_event(env->focused_component->events.key_down,
+            env->focused_component, e));
     return (1);
 }
 
@@ -104,8 +103,9 @@ int libui_components_event_handler_key_up(t_libui_env *env, SDL_Event *e)
 {
     (void)e;
     (void)env;
-
-    printf("KEY_UP\n");
+    if (env->focused_component)
+        return (libui_component_call_event(env->focused_component->events.key_up,
+            env->focused_component, e));
     return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:59:58 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/06 00:38:13 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/07 20:31:02 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 static void         constructor_init(t_libui_component *button)
 {
     button->draw = libui_button_draw;
+    libui_button_load_keyboard_events(button);
+    libui_button_load_mouse_events(button);
+    libui_button_load_wheel_events(button);
+    libui_button_load_style(button);
 }
 
 t_libui_component   *libui_new_button(t_libui_style props)

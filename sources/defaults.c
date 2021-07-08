@@ -6,7 +6,7 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 23:38:29 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 19:41:34 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/07 20:10:11 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static int             libui_defaults_component_mouse_enter(t_libui_component *c
 {
     (void)component;
     (void)e;
-    printf("ENTER\n");
     return (0); 
 }
 
@@ -26,7 +25,6 @@ static int             libui_defaults_component_mouse_leave(t_libui_component *c
 {
     (void)component;
     (void)e;
-    printf("LEAVE\n");
     return (0);
 }
 
@@ -35,7 +33,6 @@ static int             libui_defaults_component_active(t_libui_component *compon
 {
     (void)component;
     (void)e;
-    printf("ACTIVE\n");
     return (0);
 }
 
@@ -44,7 +41,6 @@ static int             libui_defaults_component_release(t_libui_component *compo
 {
     (void)component;
     (void)e;
-    printf("RELEASED\n");
     return (0);
 }
 
@@ -53,7 +49,6 @@ static int             libui_defaults_component_focus(t_libui_component *compone
 {
     (void)component;
     (void)e;
-    printf("GAINED FOCUS\n");
     return (0);
 }
 
@@ -62,7 +57,6 @@ static int             libui_defaults_component_loose_focus(t_libui_component *c
 {
     (void)component;
     (void)e;
-    printf("LOST FOCUS\n");
     return (0);
 }
 
@@ -71,7 +65,6 @@ static int             libui_defaults_component_scroll(t_libui_component *compon
 {
     (void)component;
     (void)e;
-    printf("SCROLLED\n");
     return (1);
 }
 
@@ -80,7 +73,6 @@ static int              libui_defaults_component_key_down(t_libui_component *com
 {
     (void)component;
     (void)e;
-    printf("KEY DOWN\n");
     return (1);
 }
 
@@ -89,7 +81,6 @@ static int              libui_defaults_component_key_up(t_libui_component *compo
 {
     (void)component;
     (void)e;
-    printf("KEY UP\n");
     return (1);
 }
 
