@@ -6,11 +6,39 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 13:09:49 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 13:32:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:35:33 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
+
+
+static void draw_border_arcs(t_libui_component *component)
+{
+    int i;
+
+    i = 0;
+    while (i < component->style.border_weight)
+    {
+        ft_sdl_image_arc_left_top(component->window->main_image,
+        (t_point){component->style.pos_x + component->style.border_radius,
+        component->style.pos_y + component->style.border_radius},
+        component->style.border_radius - i, component->style.border_color);
+        ft_sdl_image_arc_right_top(component->window->main_image,
+        (t_point){component->style.pos_x + component->style.width - 2 - component->style.border_radius,
+        component->style.pos_y + component->style.border_radius},
+        component->style.border_radius - i, component->style.border_color);
+        ft_sdl_image_arc_left_bottom(component->window->main_image,
+        (t_point){component->style.pos_x + component->style.border_radius,
+        component->style.pos_y + component->style.height - 1 - component->style.border_radius},
+        component->style.border_radius - i, component->style.border_color);
+        ft_sdl_image_arc_right_bottom(component->window->main_image,
+        (t_point){component->style.pos_x + component->style.width - 2 - component->style.border_radius,
+        component->style.pos_y + component->style.height - 1 - component->style.border_radius},
+        component->style.border_radius - i, component->style.border_color);
+        i++;
+    }
+}
 
 static void draw_horizontal_border(t_libui_component *component)
 {
@@ -66,5 +94,6 @@ int libui_builtin_draw_border(t_libui_component *component)
 {
     draw_vertical_border(component);
     draw_horizontal_border(component);
+    draw_border_arcs(component);
     return (0);
 }

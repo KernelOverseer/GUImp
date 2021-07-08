@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 00:27:36 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 13:33:56 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:36:32 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,33 +23,21 @@ static int  in_border_corner(int x, int y, t_libui_component *component)
 static void draw_background_border_radius(t_libui_component *component)
 {
     ft_sdl_image_disc(component->window->main_image,
-        (t_point){
-            component->style.pos_x + component->style.border_radius,
-            component->style.pos_y + component->style.border_radius
-        },
-        component->style.border_radius,
-        component->style.background_color);
+    (t_point){component->style.pos_x + component->style.border_radius,
+    component->style.pos_y + component->style.border_radius},
+    component->style.border_radius, component->style.background_color);
     ft_sdl_image_disc(component->window->main_image,
-        (t_point){
-            component->style.pos_x + component->style.width - 2 - component->style.border_radius,
-            component->style.pos_y + component->style.border_radius
-        },
-        component->style.border_radius,
-        component->style.background_color);
+    (t_point){component->style.pos_x + component->style.width - 2 - component->style.border_radius,
+    component->style.pos_y + component->style.border_radius},
+    component->style.border_radius, component->style.background_color);
     ft_sdl_image_disc(component->window->main_image,
-        (t_point){
-            component->style.pos_x + component->style.border_radius,
-            component->style.pos_y + component->style.height - 2 - component->style.border_radius
-        },
-        component->style.border_radius,
-        component->style.background_color);
+    (t_point){component->style.pos_x + component->style.border_radius,
+    component->style.pos_y + component->style.height - 1 - component->style.border_radius},
+    component->style.border_radius, component->style.background_color);
     ft_sdl_image_disc(component->window->main_image,
-        (t_point){
-            component->style.pos_x + component->style.width - 2 - component->style.border_radius,
-            component->style.pos_y + component->style.height - 2 - component->style.border_radius
-        },
-        component->style.border_radius,
-        component->style.background_color);
+    (t_point){component->style.pos_x + component->style.width - 2 - component->style.border_radius,
+    component->style.pos_y + component->style.height - 1 - component->style.border_radius},
+    component->style.border_radius, component->style.background_color);
 }
 
 static void draw_background(t_libui_component *component)

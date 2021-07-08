@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
+#    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/15 20:38:11 by abiri             #+#    #+#              #
-#    Updated: 2020/05/16 02:55:56 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/08 14:14:19 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ FILENAMES = init.c\
 			ft_strdup.c\
 			ft_memalloc.c\
 			image_load.c\
+			draw2.c\
 			text.c
 HEADER_FILE = ft_simplesdl.h\
 			  SDL2.h

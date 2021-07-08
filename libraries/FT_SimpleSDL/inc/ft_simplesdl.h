@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_simplesdl.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 00:15:45 by abiri             #+#    #+#             */
-/*   Updated: 2020/05/16 04:58:54 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:22:59 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,4 +148,8 @@ void			ft_sdl_render(t_sdl_env *env);
 Uint32			ft_sdl_get_image_pixel(t_sdl_image *image, int x, int y);
 t_rect			ft_sdl_put_text(char *text, t_text info, TTF_Font *font,
 	t_sdl_image *image);
+void		ft_sdl_image_arc_right_bottom(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_right_top(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_left_bottom(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_left_top(t_sdl_image *img, t_point co, int radius, Uint32 col);
 #endif

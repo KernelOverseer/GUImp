@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   components_user_events.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 00:22:41 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:39:18 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/08 14:51:51 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/08 15:01:03 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-int libui_button_draw(t_libui_component *component)
+void    libui_component_user_event_call(t_libui_component_user_event event,
+    void *internal_arg)
 {
-    libui_component_style_compute(component);
-    libui_builtin_draw_background(component);
-    return (0);
+    if (event.handler)
+        event.handler(internal_arg, event.arg);
 }

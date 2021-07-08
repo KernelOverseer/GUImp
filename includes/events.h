@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 15:11:38 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 23:53:58 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 15:00:28 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,12 @@ int libui_components_event_handler_key_up(t_libui_env *env, SDL_Event *e);
 int libui_components_event_handler_key_down(t_libui_env *env, SDL_Event *e);
 t_libui_component   *libui_components_get_from_mouse(t_libui_window *window,
     int x, int y);
+
+/*
+**  Component User Events
+*/
+
+void libui_component_user_event_call(t_libui_component_user_event event,
+    void *internal_arg);
 
 #endif

@@ -6,24 +6,24 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 13:33:14 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:58:37 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 #include <stdio.h>
 
-int	test_loop_hook(void *arg)
+void test_button_event(void *internal_arg, void *user_arg)
 {
-	(void)arg;
-
-	return (1);
+	(void)internal_arg;
+	printf("PRESSED BUTTON %p\n", user_arg);
 }
 
 int main(void)
 {
 	t_libui_env	env;
 	t_libui_window *window;
+	t_libui_component *component;
 
 	libui_init(&env);
 	window = ft_memalloc(sizeof(t_libui_window));
@@ -31,30 +31,16 @@ int main(void)
 	window->props.title = ft_strdup("libui window test");
 	window->props.flags = SDL_WINDOW_RESIZABLE;
 	libui_window_create(&env, window);
-
-	t_libui_component	*component;
-	t_libui_component	*component2;
-	component = libui_defaults_create_component();
-	libui_window_insert_component(window, component);	
-	component = libui_defaults_create_component();
-	component->style.pos_x += 200;
-	libui_window_insert_component(window, component);	
-	window = libui_defaults_create_window(&env);
-	component = libui_defaults_create_component();
-	libui_window_insert_component(window, component);	
-	component2 = libui_defaults_create_component();
-	component2->style.width = 25;
-	component2->style.height = 25;
-	libui_component_insert_component(component, component2);
 	component = libui_new_button((t_libui_style){
 		.background_color=0xCDCDCD,
-		.height=100,
-		.width=200,
-		.pos_x=window->props.width/2 - 100,
-		.pos_y=window->props.height/2 - 50,
+		.height=50,
+		.width=100,
+		.pos_x=window->props.width/2 - 50,
+		.pos_y=window->props.height/2 - 25,
 	});
 	libui_window_insert_component(window, component);
-
+	component->user_events.on_click.handler = test_button_event;
+	component->user_events.on_click.arg = (void *)0xFF00FF;
 	if (!libui_get_error())
 		printf("SUCCESS INITIALIZING\n");
 	else

@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:11:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 15:26:47 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 15:27:33 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ button->raw_styles.active = button->raw_styles.regular;
     button->raw_styles.active.background_color.value.integer = 
         DEFAULT_COLOR_BACKGROUND_TERTIARY;
 }
-
 static void set_default_focused_style(t_libui_component *button)
 {
     button->raw_styles.focused = button->raw_styles.regular;

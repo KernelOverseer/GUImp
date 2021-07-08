@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:49:30 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 11:34:56 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:58:10 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct  s_libui_component
 {
     t_libui_component_draw_handler  draw;
     t_libui_component_events        events;
+    t_libui_component_user_events   user_events;
     t_libui_style                   style;
     t_libui_component_status        status;
     struct s_libui_component        *parent;

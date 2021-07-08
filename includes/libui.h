@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libui.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 22:30:30 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 14:59:25 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "ttslist.h"
 # include "ft_simplesdl.h"
 # include "default_theme.h"
+# include "component_user_events.h"
 # include "typedefs.h"
 # include "input_tools.h"
 # include "events.h"
