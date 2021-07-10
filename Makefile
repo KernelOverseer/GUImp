@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+         #
+#    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/03 17:30:55 by abiri             #+#    #+#              #
-#    Updated: 2021/07/06 00:50:05 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/10 21:33:16 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,3 +76,10 @@ testclean:
 
 .PHONY: retest
 retest: testclean test
+
+.PHONY: count_files
+count_files:
+	@echo "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.c" | wc -l` \x1b[0m $(_END): Source Files"
+	@echo "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.h" | wc -l` \x1b[0m $(_END): Header Files"
+	@echo "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -l` \x1b[0m $(_END): Lines of code"
+	@echo "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -c` \x1b[0m $(_END): Characters of code"

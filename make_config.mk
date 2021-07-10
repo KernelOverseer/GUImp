@@ -6,7 +6,7 @@
 #    By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/10 09:47:18 by abiri             #+#    #+#              #
-#    Updated: 2021/07/10 20:11:59 by abiri            ###   ########.fr        #
+#    Updated: 2021/07/10 20:55:01 by abiri            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,16 @@ SRC_DIR = sources
 LIBS_DIR = ./libraries
 OBJ_DIR = ./objects
 TEST_DIR = ./tests
+
+#color presets
+
+_lCYAN = \x1b[96m
+_lYELLOW = \x1b[93m
+_lGREEN = \x1b[92m
+_lBLUE = \x1b[94m
+_RED = \x1b[31m
+_BOLD = \x1b[1m
+_END = \x1b[0m
 
 #system specific conditions
 
