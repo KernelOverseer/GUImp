@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 14:13:00 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:29:59 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 15:27:04 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void		ft_sdl_image_arc_left_top(t_sdl_image *img, t_point co, int radius, Uint32
 	x = -1;
 	while (y >= ++x)
 	{
-        ft_sdl_image_pixel(img, co.x - x, co.y - y, col);
-        ft_sdl_image_pixel(img, co.x - y, co.y - x, col);
+        ft_sdl_set_image_pixel(img, co.x - x, co.y - y, col);
+        ft_sdl_set_image_pixel(img, co.x - y, co.y - x, col);
 		if (d < 0)
 			d = d + (x << 2) + 6;
 		else
@@ -48,8 +48,8 @@ void		ft_sdl_image_arc_left_bottom(t_sdl_image *img, t_point co, int radius, Uin
 	x = -1;
 	while (y >= ++x)
 	{
-        ft_sdl_image_pixel(img, co.x - x, co.y + y, col);
-        ft_sdl_image_pixel(img, co.x - y, co.y + x, col);
+        ft_sdl_set_image_pixel(img, co.x - x, co.y + y, col);
+        ft_sdl_set_image_pixel(img, co.x - y, co.y + x, col);
 		if (d < 0)
 			d = d + (x << 2) + 6;
 		else
@@ -72,8 +72,8 @@ void		ft_sdl_image_arc_right_top(t_sdl_image *img, t_point co, int radius, Uint3
 	x = -1;
 	while (y >= ++x)
 	{
-        ft_sdl_image_pixel(img, co.x + 1 + x, co.y - y, col);
-                ft_sdl_image_pixel(img, co.x + 1 + y, co.y - x, col);
+        ft_sdl_set_image_pixel(img, co.x + 1 + x, co.y - y, col);
+                ft_sdl_set_image_pixel(img, co.x + 1 + y, co.y - x, col);
 		if (d < 0)
 			d = d + (x << 2) + 6;
 		else
@@ -96,8 +96,8 @@ void		ft_sdl_image_arc_right_bottom(t_sdl_image *img, t_point co, int radius, Ui
 	x = -1;
 	while (y >= ++x)
 	{
-        ft_sdl_image_pixel(img, co.x + 1 + x, co.y + y, col);
-		ft_sdl_image_pixel(img, co.x + 1 + y, co.y + x, col);
+        ft_sdl_set_image_pixel(img, co.x + 1 + x, co.y + y, col);
+		ft_sdl_set_image_pixel(img, co.x + 1 + y, co.y + x, col);
 		if (d < 0)
 			d = d + (x << 2) + 6;
 		else

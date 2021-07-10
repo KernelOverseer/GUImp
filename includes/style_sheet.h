@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   default_theme.h                                    :+:      :+:    :+:   */
+/*   style_sheet.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 20:21:16 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 15:34:31 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/10 18:01:35 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/10 20:43:59 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFAULT_THEME_H
-# define DEFAULT_THEME_H
-# define DEFAULT_COLOR_TEXT_PRIMARY 0xEF000000
-# define DEFAULT_COLOR_TEXT_SECONDARY 0xFF212121
-# define DEFAULT_COLOR_BACKGROUND_PRIMARY 0xFFCDCDCD
-# define DEFAULT_COLOR_BACKGROUND_SECONDARY 0xFFE0E0E0
-# define DEFAULT_COLOR_BACKGROUND_TERTIARY 0xFFBDBDBD
+#ifndef STYLE_SHEET_H
+# define STYLE_SHEET_H
+# include "libui.h"
+
+typedef struct  s_libui_color_preset
+{
+    char        *name;
+    Uint32      color;
+}               t_libui_color_preset;
+
+extern const t_libui_color_preset g_libui_color_presets[];
+
+t_style_prop    css_parse_color(char *value);
 
 #endif

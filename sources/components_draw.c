@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   components_draw.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 19:36:12 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 19:38:20 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 15:18:59 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,47 @@ int libui_component_draw_default(t_libui_component *component)
     return (0);
 }
 
+int libui_component_recalculate_image(t_libui_component *component)
+{
+    if (!component->image ||
+        component->image->height != component->style.height ||
+        component->image->width != component->style.width)
+    {
+        if (component->image)
+            free(component->image->pixels);
+        free(component->image);
+        component->image = newimage(component->style.width, component->style.height);
+        return (1);
+    }
+    return (0);
+}
+
+int libui_component_blit_image(t_libui_component *component)
+{
+    libui_draw_blit_image((t_rect){.x=component->style.pos_x,
+        .y=component->style.pos_y, .w=component->style.width,
+        .h=component->style.height},
+        component->window->main_image,
+        component->image);
+    return (1);
+}
+
 int libui_components_draw(t_libui_component *component)
 {
     t_list_head         children_list;
     t_libui_component   *child;
 
+    libui_component_style_compute(component);
     if (component->draw)
-        component->draw(component);
+    {
+        if (component->status.re_render)
+            component->draw(component);
+        component->status.re_render = FALSE;
+        libui_component_blit_image(component);
+    }
     children_list = component->children;
     children_list.iterator = children_list.first;
     while ((child = (ttslist_iter_content(&children_list))))
-    {
         libui_components_draw(child);
-    }
     return (0);
 }

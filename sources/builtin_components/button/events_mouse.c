@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:54:00 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 15:01:51 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 13:48:16 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ static int     active(t_libui_component *button,
 {
     (void)button;
     (void)e;
+    printf("RGBA(%d,%d,%d,%d)\n",
+        RGB_R(ft_sdl_get_image_pixel(button->image, e->button.x - button->style.pos_x, e->button.y - button->style.pos_y)),
+        RGB_G(ft_sdl_get_image_pixel(button->image, e->button.x - button->style.pos_x, e->button.y - button->style.pos_y)),
+        RGB_B(ft_sdl_get_image_pixel(button->image, e->button.x - button->style.pos_x, e->button.y - button->style.pos_y)),
+        RGB_A(ft_sdl_get_image_pixel(button->image, e->button.x - button->style.pos_x, e->button.y - button->style.pos_y)));
     button->status.active = TRUE;
     return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 00:15:45 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:22:59 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 13:41:05 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <SDL_ttf.h>
 # define MAX_IMAGE_SIZE 20745600
 # define DEFAULT_EMPTY_PIXEL 0xCC00CC
-# define RGB_B(c) (c & 255)
-# define RGB_G(c) ((c >> 8) & 255)
-# define RGB_R(c) ((c >> 16) & 255)
-# define RGB_A(c) ((c >> 24) & 255)
+# define RGB_B(c) ((c) & 255)
+# define RGB_G(c) (((c) >> 8) & 255)
+# define RGB_R(c) (((c) >> 16) & 255)
+# define RGB_A(c) (((c) >> 24) & 255)
+# define RGB(r, g, b, a) ((r) | ((g) << 8) | ((b) << 16) | ((a) << 24))
 # define ALIGN_LEFT_TOP 0
 # define ALIGN_CENTER_CENTER 1
 # define KEY(e) e.key.keysym.sym

@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:58:37 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 20:12:41 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void test_button_event(void *internal_arg, void *user_arg)
 	printf("PRESSED BUTTON %p\n", user_arg);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
+	printf("%#x\n", css_parse_color(argv[1]).value.integer);
+	return (0);
 	t_libui_env	env;
 	t_libui_window *window;
 	t_libui_component *component;
@@ -32,7 +34,6 @@ int main(void)
 	window->props.flags = SDL_WINDOW_RESIZABLE;
 	libui_window_create(&env, window);
 	component = libui_new_button((t_libui_style){
-		.background_color=0xCDCDCD,
 		.height=50,
 		.width=100,
 		.pos_x=window->props.width/2 - 50,
