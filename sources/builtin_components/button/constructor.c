@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:59:58 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 15:02:08 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 17:34:27 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void         constructor_init(t_libui_component *button)
 {
+    button->status.name = ft_strdup("button");
     button->draw = libui_button_draw;
     libui_button_load_keyboard_events(button);
     libui_button_load_mouse_events(button);

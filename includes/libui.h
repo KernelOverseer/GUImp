@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:59:25 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 20:41:16 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "ttslist.h"
 # include "ft_simplesdl.h"
 # include "default_theme.h"
+# include "style.h"
+# include "style_sheet.h"
 # include "component_user_events.h"
 # include "typedefs.h"
 # include "input_tools.h"
@@ -53,5 +55,7 @@ int                 libui_main_loop(t_libui_env *env);
 */
 
 void            libui_draw(t_libui_env *env);
+void            libui_draw_blit_image(t_rect pos, t_sdl_image *canvas,
+    t_sdl_image *image);
 
 #endif

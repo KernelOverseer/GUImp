@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:11:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 15:26:47 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 19:01:50 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void set_default_regular_style(t_libui_component *button)
         .pos_x = button->style.pos_x,
         .pos_y = button->style.pos_y,
         .background_color.value.integer = DEFAULT_COLOR_BACKGROUND_PRIMARY,
-        .border_weight.value.integer = 2,
+        .border_color.value.integer = DEFAULT_COLOR_TEXT_PRIMARY,
+        .border_weight.value.integer = 1,
         .border_radius.value.integer = 20
     };
 }

@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 11:38:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 19:20:25 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 19:57:41 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define FALSE 0
 # define SUCCESS 1
 # define ERROR 0
+# define HEX_CHARSET "0123456789ABCDEF"
 
 typedef u_int32_t uint32_t;
 typedef u_int16_t uint16_t;
@@ -44,6 +45,7 @@ enum
 };
 
 int					ft_atoi(const char *str);
+unsigned int		ft_atoi_base(const char *str, const char *base);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 size_t				ft_strlen(const char *s);

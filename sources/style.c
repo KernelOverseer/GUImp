@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:45:49 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 14:34:32 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 15:22:58 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ static void compute_from_raw(t_libui_style *style,
 
 void    libui_component_style_compute(t_libui_component *component)
 {
+    t_libui_style   old_style;
+
+    old_style = component->style;
     if (component->status.active)
         compute_from_raw(&component->style, component->parent,
             &component->raw_styles.active);
@@ -122,4 +125,6 @@ void    libui_component_style_compute(t_libui_component *component)
     else
         compute_from_raw(&component->style, component->parent,
             &component->raw_styles.regular);
+    if (ft_memcmp(&old_style, &component->style, sizeof(t_libui_style)))
+        component->status.re_render = TRUE;
 }
