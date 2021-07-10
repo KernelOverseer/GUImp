@@ -3,7 +3,8 @@
 LIB_NAME = C+
 NAME = lib$(LIB_NAME).a
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+DEBUG =
+FLAGS = $(DEBUG) -Wall -Werror -Wextra
 SRC_DIR = sources
 INC_DIR = includes
 OBJ_DIR = objects
@@ -20,4 +21,5 @@ MODULES = base\
 	  ttslist\
 	  get_next_line\
 	  xml_parser\
-	  cvector
+	  cvector\
+	  css_parser
