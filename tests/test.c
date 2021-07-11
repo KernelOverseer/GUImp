@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 20:12:41 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/11 02:49:16 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ void test_button_event(void *internal_arg, void *user_arg)
 
 int main(int argc, char **argv)
 {
-	printf("%#x\n", css_parse_color(argv[1]).value.integer);
+	t_style_prop	prop;
+	prop = css_parse_color(argv[1]);
+	if (prop.type == STYLE_RELATIVE)
+		printf("%f of the parent\n", prop.value.decimal);
+	else
+		printf("%d px\n", prop.value.integer);
 	return (0);
 	t_libui_env	env;
 	t_libui_window *window;

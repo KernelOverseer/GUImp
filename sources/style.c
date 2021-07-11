@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   style.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:45:49 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 15:22:58 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/11 03:09:42 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ static void compute_inherit(t_libui_style *style, t_libui_style *parent,
         parent->font_weight);
     style->opacity = inherit_decimal(raw->opacity,
         parent->opacity);
+    style->color = inherit_integer(raw->color,
+        parent->color)
 }
 
 static void compute_basic(t_libui_style *style, t_libui_raw_style *raw)
@@ -97,6 +99,7 @@ static void compute_basic(t_libui_style *style, t_libui_raw_style *raw)
     style->font_size = raw->font_size.value.integer;
     style->font_weight = raw->font_weight.value.integer;
     style->opacity = raw->opacity.value.decimal;
+    style->color = raw->color.value.integer;
 }
 
 static void compute_from_raw(t_libui_style *style,

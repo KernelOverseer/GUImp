@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   css_parsers.c                                      :+:      :+:    :+:   */
+/*   css_color_parsers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 18:01:18 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 20:42:22 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/11 02:49:01 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ static int  parse_hex(Uint32 *value, char *str)
     return (1);
 }
 
-static int parse_int(int *value, char *str)
+int parse_int(int *value, char *str)
 {
     int i;
 
     i = 0;
+    if (str[i] == '-' || str[i] == '+')
+        i++;
     while (ft_isdigit(str[i]))
         i++;
     *value = ft_atoi(str);
@@ -103,6 +105,7 @@ t_style_prop    css_parse_color(char *value)
     if (ft_strequ(value, "inherit"))
     {
         result.type = STYLE_INHERIT;
+        free(value);
         return (result);
     }
     if (parse_hex(&result.value.integer, value) ||
@@ -113,5 +116,6 @@ t_style_prop    css_parse_color(char *value)
         free(value);
         return (result);
     }
+    free(value);
     return (result);
 }

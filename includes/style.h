@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   style.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:53:42 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/08 13:03:32 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/11 03:10:55 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct  s_libui_raw_style
     t_style_prop    font_family;
     t_style_prop    font_size;
     t_style_prop    font_weight;
+    t_style_prop    color;
     int             position;
     int             pos_x;
     int             pos_y;
@@ -87,6 +88,7 @@ typedef struct  s_libui_style
     // font_family to be added
     int                 font_size;
     int                 font_weight;
+    Uint32              color;
     float               opacity;
 }               t_libui_style;
 
