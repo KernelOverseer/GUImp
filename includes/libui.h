@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libui.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 02:54:33 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/12 21:18:14 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ char                *libui_get_error(void);
 t_libui_window      *libui_defaults_create_window(t_libui_env *env);
 t_libui_component   *libui_defaults_create_component(void);
 int                 libui_main_loop(t_libui_env *env);
+t_libui_component   *libui_component_get_by_id(t_libui_window *window, char *id);
 
 /*
 **  libui internal API
