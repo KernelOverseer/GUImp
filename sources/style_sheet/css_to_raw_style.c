@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 02:50:29 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/12 21:21:37 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 14:08:02 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_libui_raw_style   css_to_raw_style(t_list_head props)
         if (handler)
             handler(prop, &style);
     }
+    return (style);
 }
 
 // int                 css_apply_to_query(t_libui_window *widnow, t_css_element *element)

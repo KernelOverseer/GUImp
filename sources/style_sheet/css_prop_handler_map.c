@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   css_prop_handler_map.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 02:59:09 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 03:19:48 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 14:07:42 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,4 @@ const t_libui_css_prop_handler_map  g_libui_css_prop_handlers[] =
     {.name="left", .handler=libui_css_prop_set_numbers},
     {.name="opacity", .handler=libui_css_prop_set_numbers},
     {.name=NULL, .handler=NULL}
-}
+};

@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 21:10:00 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/12 21:17:55 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 14:06:52 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_libui_component   *get_child_by_id(t_libui_component *parent, char *id)
 
     children = parent->children;
     children.iterator = children.first;
-    while ((child = ttslist_iter_content(&children))
+    while ((child = ttslist_iter_content(&children)))
     {
         if (ft_strequ(child->status.id, id))
             return (child);
@@ -35,9 +35,9 @@ t_libui_component    *libui_component_get_by_id(t_libui_window *window, char *id
     t_list_head         children;
     t_libui_component   *child;
 
-    children = parent->children;
+    children = window->components;
     children.iterator = children.first;
-    while ((child = ttslist_iter_content(&children))
+    while ((child = ttslist_iter_content(&children)))
     {
         if (ft_strequ(child->status.id, id))
             return (child);
