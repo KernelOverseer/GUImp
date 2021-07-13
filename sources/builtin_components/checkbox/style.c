@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:11:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 19:01:50 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 15:27:33 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ static void set_default_regular_style(t_libui_component *button)
         .pos_x = button->style.pos_x,
         .pos_y = button->style.pos_y,
         .background_color.value.integer = DEFAULT_COLOR_BACKGROUND_PRIMARY,
-        .border_color.value.integer = DEFAULT_COLOR_TEXT_PRIMARY,
-        .border_weight.value.integer = 1,
+        .border_weight.value.integer = 2,
         .border_radius.value.integer = 20
     };
 }
@@ -39,7 +38,6 @@ button->raw_styles.active = button->raw_styles.regular;
     button->raw_styles.active.background_color.value.integer = 
         DEFAULT_COLOR_BACKGROUND_TERTIARY;
 }
-
 static void set_default_focused_style(t_libui_component *button)
 {
     button->raw_styles.focused = button->raw_styles.regular;

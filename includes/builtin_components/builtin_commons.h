@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_commons.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 00:30:07 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 20:21:08 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 13:10:34 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 # include "libui.h"
 
 int libui_builtin_draw_background(t_libui_component *component);
+int libui_builtin_draw_border(t_libui_component *component);
 
 #endif

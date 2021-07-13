@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@1337.MA>                      +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 11:38:53 by abiri             #+#    #+#             */
-/*   Updated: 2019/05/20 23:46:32 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 19:57:41 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# define BUFF_SIZE 1
+# define BUFF_SIZE 2048
 # define WHITESPACES "\t\n\v\f\r "
 # define ABS(i) (i > 0 ? i : -i)
 # define TRUE 1
 # define FALSE 0
 # define SUCCESS 1
 # define ERROR 0
+# define HEX_CHARSET "0123456789ABCDEF"
 
 typedef u_int32_t uint32_t;
 typedef u_int16_t uint16_t;
@@ -44,6 +45,7 @@ enum
 };
 
 int					ft_atoi(const char *str);
+unsigned int		ft_atoi_base(const char *str, const char *base);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 size_t				ft_strlen(const char *s);

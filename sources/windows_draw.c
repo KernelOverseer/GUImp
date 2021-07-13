@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   windows_draw.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 17:30:02 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 20:32:17 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 13:58:46 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void    libui_window_draw(t_libui_window *window)
     ft_sdl_image_rect(window->main_image, (t_rect){
         0, 0,
         window->props.width, window->props.height
-    }, 0xFFFFFF);
+    }, 0xFFFFFFFF);
 }

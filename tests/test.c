@@ -6,21 +6,20 @@
 /*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 14:23:36 by azouiten         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:28:45 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 #include <stdio.h>
 
-int	test_loop_hook(void *arg)
+void test_button_event(void *internal_arg, void *user_arg)
 {
-	(void)arg;
-
-	return (1);
+	(void)internal_arg;
+	printf("PRESSED BUTTON %p\n", user_arg);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
 	// t_libui_env	env;
 	// t_libui_window *window;

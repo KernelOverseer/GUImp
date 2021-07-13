@@ -8,6 +8,11 @@
         "components.h": "c",
         "button.h": "c",
         "sdl_ttf.h": "c",
-        "ft_simplesdl.h": "c"
-    }
+        "ft_simplesdl.h": "c",
+        "ttslist.h": "c",
+        "style.h": "c",
+        "component_user_events.h": "c",
+        "typeinfo": "c",
+    },
+    "C_Cpp.default.includePath": ["{workspace}/includes", "{workspace}/libraries/FT_SimpleSDL/sdl2_inc/"]
 }

@@ -6,7 +6,7 @@
 /*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 00:15:45 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 16:42:59 by azouiten         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:29:09 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <SDL_ttf.h>
 # define MAX_IMAGE_SIZE 20745600
 # define DEFAULT_EMPTY_PIXEL 0xCC00CC
-# define RGB_B(c) (c & 255)
-# define RGB_G(c) ((c >> 8) & 255)
-# define RGB_R(c) ((c >> 16) & 255)
-# define RGB_A(c) ((c >> 24) & 255)
+# define RGB_B(c) ((c) & 255)
+# define RGB_G(c) (((c) >> 8) & 255)
+# define RGB_R(c) (((c) >> 16) & 255)
+# define RGB_A(c) (((c) >> 24) & 255)
+# define RGB(r, g, b, a) ((r) | ((g) << 8) | ((b) << 16) | ((a) << 24))
 # define ALIGN_LEFT_TOP 0
 # define ALIGN_CENTER_CENTER 1
 # define KEY(e) e.key.keysym.sym
@@ -150,4 +151,8 @@ void			ft_sdl_render(t_sdl_env *env);
 Uint32			ft_sdl_get_image_pixel(t_sdl_image *image, int x, int y);
 t_rect			ft_sdl_put_text(char *text, t_text info, TTF_Font *font,
 	t_sdl_image *image);
+void		ft_sdl_image_arc_right_bottom(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_right_top(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_left_bottom(t_sdl_image *img, t_point co, int radius, Uint32 col);
+void		ft_sdl_image_arc_left_top(t_sdl_image *img, t_point co, int radius, Uint32 col);
 #endif
