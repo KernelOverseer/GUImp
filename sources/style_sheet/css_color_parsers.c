@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   css_color_parsers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 18:01:18 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 02:49:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 17:41:04 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int  parse_color_presets(Uint32 *value, char *str)
     {
         if (ft_strequ(str, g_libui_color_presets[i].name))
         {
-            *value = g_libui_color_presets[i].color;
+            *value = g_libui_color_presets[i].color | 0xFF000000;
             return (1);
         }
         i++;
@@ -105,6 +105,12 @@ t_style_prop    css_parse_color(char *value)
     if (ft_strequ(value, "inherit"))
     {
         result.type = STYLE_INHERIT;
+        free(value);
+        return (result);
+    }
+    if (ft_strequ(value, "transparent"))
+    {
+        result.value.integer = 0x0;
         free(value);
         return (result);
     }

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   events_wheel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 00:22:41 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:16:22 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/07 20:01:48 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/13 17:07:34 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-int libui_button_draw(t_libui_component *component)
+static int     scroll(t_libui_component *div,
+    SDL_Event *e)
 {
-    libui_component_recalculate_image(component);
-    ft_bzero(component->image->pixels, sizeof(Uint32) *
-        component->image->width * component->image->height);
-    libui_builtin_draw_background(component);
-    return (0);
+    (void)div;
+    (void)e;
+    return (1);
+}
+
+void    libui_div_load_wheel_events(t_libui_component *component)
+{
+    component->events.scroll = scroll;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   css_size_parser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 02:34:19 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 03:10:38 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 16:06:50 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int      parse_number(t_style_prop *prop, char *value)
     if (offset == 0)
         return (0);
     value += offset;
-    printf("resuming from |%s|\n", value);
     while (*value && ft_ischarin(WHITESPACES, *value))
         value++;
     if (!*value || ft_strequ(value, "px"))

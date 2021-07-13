@@ -6,23 +6,20 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:59:58 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:27:03 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 16:50:25 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-static void         constructor_init(t_libui_component *checkbox)
+static void         constructor_init(t_libui_component *div)
 {
-    checkbox->status.name = ft_strdup("checkbox");
-    checkbox->draw = libui_checkbox_draw;
-    libui_checkbox_load_keyboard_events(checkbox);
-    libui_checkbox_load_mouse_events(checkbox);
-    libui_checkbox_load_wheel_events(checkbox);
-    libui_checkbox_load_style(checkbox);
+    div->status.name = ft_strdup("div");
+    div->draw = libui_div_draw;
+    libui_div_load_style(div);
 }
 
-t_libui_component   *libui_new_checkbox(t_libui_style props)
+t_libui_component   *libui_new_div(t_libui_style props)
 {
     t_libui_component    *result;
 

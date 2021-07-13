@@ -1,0 +1,42 @@
+* {
+    background-color: lightgrey;
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+div {
+    background-color: #FFFFFF;
+}
+
+button {
+    border-width: 2px;
+    border-color: orange;
+}
+
+#FIRST {
+    border-color: blue;
+    top: 100px;
+}
+
+.main-button {
+    background-color: lightgreen;
+}
+
+#SECOND {
+    top: 225px;
+    left: 0px;
+    background-color: lightblue;
+}
+
+checkbox {
+    background-color: white;
+    border-color: black;
+    border-radius: 50%;
+    border-width: 2px;
+    color: black;
+    width: 25px;
+    height: 25px;
+    top: 200px;
+    left: 200px;
+}

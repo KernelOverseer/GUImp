@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 11:38:53 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 19:57:41 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 17:24:55 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,8 @@ char				*ft_removechars(char **str, char toremove);
 char				*ft_getnextvar(char *str);
 int					ft_scanstr(char *text, char *expression, ...);
 int					ft_match(char *text, char *expression);
+int					ft_int_min(int a, int b);
+int					ft_int_max(int a, int b);
+int					ft_int_cap(int value, int min, int max);
 
 #endif
