@@ -6,6 +6,8 @@
         "sdl.h": "c",
         "builtin_commons.h": "c",
         "components.h": "c",
-        "button.h": "c"
+        "button.h": "c",
+        "sdl_ttf.h": "c",
+        "ft_simplesdl.h": "c"
     }
 }

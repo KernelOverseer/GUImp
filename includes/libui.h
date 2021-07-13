@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libui.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 22:30:30 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 16:07:24 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "windows.h"
 # include "components.h"
 # include "button.h"
+# include "font.h"
 
 struct  s_libui_env
 {

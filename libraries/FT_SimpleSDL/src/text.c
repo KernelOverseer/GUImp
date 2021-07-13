@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   text.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 02:51:27 by abiri             #+#    #+#             */
-/*   Updated: 2020/05/16 05:00:17 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/08 18:33:15 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_rect	ft_sdl_put_text(char *text, t_text info, TTF_Font *font,
 	t_rect		off;
 	SDL_Surface	*surface;
 
-	surface = TTF_RenderText_Solid(font, text, (SDL_Color){255, 255, 255, 0});
+	surface = TTF_RenderText_Blended(font, text, (SDL_Color){RGB_R(info.color), RGB_G(info.color), RGB_B(info.color), RGB_A(info.color)});
 	if (!surface)
 		return ((t_rect){0, 0, 0, 0});
 	off = (t_rect){info.x, info.y, surface->w, surface->h};
@@ -43,7 +43,7 @@ t_rect	ft_sdl_put_text(char *text, t_text info, TTF_Font *font,
 		for (int x = 0; x < image->width && x < surface->w; x++)
 		{
 			if (RGB_A(get_pixel(surface, x, y)))
-				ft_sdl_set_image_pixel(image, off.x + x, off.y + y, info.color);
+				ft_sdl_blend_image_pixel(image, off.x + x, off.y + y, get_pixel(surface, x, y));
 		}
 	}	
 	SDL_UnlockSurface(surface);

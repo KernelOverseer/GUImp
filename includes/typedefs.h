@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   typedefs.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 14:48:22 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 23:54:24 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 16:33:54 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef int     (*t_libui_component_draw_handler)(t_libui_component *component);
 typedef int     (*t_libui_component_event_handler)(t_libui_component *component,
     SDL_Event *e);
 typedef int     (*t_libui_window_event_handler)(t_libui_window *window,
-    SDL_Event *e);
+    SDL_Event *e); // hmmm
 typedef struct  s_libui_event_handler_map t_libui_event_handler_map;
 typedef struct  s_libui_component_event_handler_map
     t_libui_component_event_handler_map;

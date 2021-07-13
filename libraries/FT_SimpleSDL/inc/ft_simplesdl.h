@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_simplesdl.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 00:15:45 by abiri             #+#    #+#             */
-/*   Updated: 2020/05/16 04:58:54 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 16:42:59 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,8 @@ void				ft_sdl_put_image(t_sdl_image *image, t_sdl_env *env);
 void				ft_sdl_image_pixel(t_sdl_image *image, int x,
 		int y, Uint32 color);
 void				ft_sdl_set_image_pixel(t_sdl_image *image, int x,
+		int y, Uint32 color);
+void				ft_sdl_blend_image_pixel(t_sdl_image *image, int x,
 		int y, Uint32 color);
 t_sdl_image			*newimage(int width, int height);
 void				ft_sdl_clear_image(t_sdl_image *image, Uint32 color);
