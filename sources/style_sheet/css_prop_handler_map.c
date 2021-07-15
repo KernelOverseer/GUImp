@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 02:59:09 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 14:07:42 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:01:07 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int  libui_css_prop_set_numbers(t_css_prop *prop, t_libui_raw_style *styl
         style->width = css_parse_size(prop->value);
     else if (ft_strequ(prop->key, "height"))
         style->height = css_parse_size(prop->value);
-    else if (ft_strequ(prop->key, "border-weight"))
+    else if (ft_strequ(prop->key, "border-width"))
         style->border_weight = css_parse_size(prop->value); 
     else if (ft_strequ(prop->key, "border-opacity"))
         style->border_opacity = css_parse_size(prop->value); 
@@ -46,9 +46,9 @@ static int  libui_css_prop_set_numbers(t_css_prop *prop, t_libui_raw_style *styl
     else if (ft_strequ(prop->key, "font-weight"))
         style->font_weight = css_parse_size(prop->value);
     else if (ft_strequ(prop->key, "top"))
-        style->pos_x = css_parse_size(prop->value).value.integer;
-    else if (ft_strequ(prop->key, "left"))
         style->pos_y = css_parse_size(prop->value).value.integer;
+    else if (ft_strequ(prop->key, "left"))
+        style->pos_x = css_parse_size(prop->value).value.integer;
     else if (ft_strequ(prop->key, "opacity"))
         style->opacity = css_parse_size(prop->value);
     return (1);
@@ -62,7 +62,7 @@ const t_libui_css_prop_handler_map  g_libui_css_prop_handlers[] =
     {.name="color", .handler=libui_css_prop_set_colors},
     {.name="width", .handler=libui_css_prop_set_numbers},
     {.name="height", .handler=libui_css_prop_set_numbers},
-    {.name="border-weight", .handler=libui_css_prop_set_numbers},
+    {.name="border-width", .handler=libui_css_prop_set_numbers},
     {.name="border-opacity", .handler=libui_css_prop_set_numbers},
     {.name="border-radius", .handler=libui_css_prop_set_numbers},
     {.name="box-shadow-weight", .handler=libui_css_prop_set_numbers},

@@ -6,13 +6,16 @@
 /*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 18:01:35 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 02:58:50 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/15 12:58:45 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STYLE_SHEET_H
 # define STYLE_SHEET_H
 # include "libui.h"
+# define STYLE_QUERY_TAG 0
+# define STYLE_QUERY_CLASS 1
+# define STYLE_QUERY_ID 2
 
 typedef struct  s_libui_color_preset
 {
@@ -33,8 +36,10 @@ typedef struct  s_libui_css_prop_handler_map
 extern const t_libui_css_prop_handler_map   g_libui_css_prop_handlers[];
 extern const t_libui_color_preset           g_libui_color_presets[];
 
-t_style_prop    css_parse_color(char *value);
-int             parse_int(int *value, char *str);
-t_style_prop    css_parse_size(char *value);
+t_style_prop        css_parse_color(char *value);
+int                 parse_int(int *value, char *str);
+t_style_prop        css_parse_size(char *value);
+t_libui_raw_style   css_to_raw_style(t_libui_raw_style *source, t_list_head props);
+int                 css_apply_to_window(t_libui_window *window, t_css_context *css);
 
 #endif

@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:59:58 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:27:03 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/15 13:18:50 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-static void         constructor_init(t_libui_component *checkbox)
+static void         constructor_init(t_libui_component *radio)
 {
-    checkbox->status.name = ft_strdup("checkbox");
-    checkbox->draw = libui_checkbox_draw;
-    libui_checkbox_load_keyboard_events(checkbox);
-    libui_checkbox_load_mouse_events(checkbox);
-    libui_checkbox_load_wheel_events(checkbox);
-    libui_checkbox_load_style(checkbox);
+    radio->status.name = ft_strdup("radio");
+    radio->draw = libui_radio_draw;
+    libui_radio_load_keyboard_events(radio);
+    libui_radio_load_mouse_events(radio);
+    libui_radio_load_wheel_events(radio);
+    libui_radio_load_style(radio);
 }
 
-t_libui_component   *libui_new_checkbox(t_libui_style props)
+t_libui_component   *libui_new_radio(t_libui_style props)
 {
     t_libui_component    *result;
 

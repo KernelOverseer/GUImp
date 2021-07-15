@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   events_wheel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 20:01:48 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/07 20:08:36 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 17:03:56 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-static int     scroll(t_libui_component *button,
+static int     scroll(t_libui_component *checkbox,
     SDL_Event *e)
 {
-    (void)button;
+    (void)checkbox;
     (void)e;
     return (1);
 }
 
-void    libui_button_load_wheel_events(t_libui_component *component)
+void    libui_checkbox_load_wheel_events(t_libui_component *component)
 {
     component->events.scroll = scroll;
 }

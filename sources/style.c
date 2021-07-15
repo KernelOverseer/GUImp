@@ -6,7 +6,7 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:45:49 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 14:07:19 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 18:01:14 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ static void compute_from_raw(t_libui_style *style,
     compute_basic(style, raw);
     if (parent)
         compute_inherit(style, &parent->style, raw);
+    if (raw->border_radius.type == STYLE_RELATIVE)
+    {
+        style->border_radius = ft_int_min(style->width * raw->border_radius.value.decimal,
+        style->height * raw->border_radius.value.decimal);
+    }
 }
 
 void    libui_component_style_compute(t_libui_component *component)

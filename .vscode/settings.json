@@ -13,6 +13,10 @@
         "style.h": "c",
         "component_user_events.h": "c",
         "typeinfo": "c",
+        "sdl_ttf.h": "c",
+        "windows.h": "c",
+        "typedefs.h": "c",
+        "events.h": "c"
     },
     "C_Cpp.default.includePath": ["{workspace}/includes", "{workspace}/libraries/FT_SimpleSDL/sdl2_inc/"]
 }

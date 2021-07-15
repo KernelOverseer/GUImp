@@ -6,13 +6,13 @@
 /*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 00:22:41 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:16:22 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 16:49:55 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libui.h"
 
-int libui_button_draw(t_libui_component *component)
+int libui_div_draw(t_libui_component *component)
 {
     libui_component_recalculate_image(component);
     ft_bzero(component->image->pixels, sizeof(Uint32) *

@@ -21,38 +21,9 @@ void test_button_event(void *internal_arg, void *user_arg)
 
 int main(int argc, char **argv)
 {
-	// t_libui_env	env;
-	// t_libui_window *window;
-
-	// libui_init(&env);
-	// window = ft_memalloc(sizeof(t_libui_window));
-	// libui_window_init(window);
-	// window->props.title = ft_strdup("libui window test");
-	// window->props.flags = SDL_WINDOW_RESIZABLE;
-	// libui_window_create(&env, window);
-
-	// t_libui_component	*component;
-	// t_libui_component	*component2;
-	// component = libui_defaults_create_component();
-	// libui_window_insert_component(window, component);	
-	// component = libui_defaults_create_component();
-	// component->style.pos_x += 200;
-	// libui_window_insert_component(window, component);	
-	// window = libui_defaults_create_window(&env);
-	// component = libui_defaults_create_component();
-	// libui_window_insert_component(window, component);	
-	// component2 = libui_defaults_create_component();
-	// component2->style.width = 500;
-	// component2->style.height = 50;
-	// libui_component_insert_component(component, component2);
-	// component = libui_new_button((t_libui_style){
-	// 	.background_color=0xCDCDCD,
-	// 	.height=50,
-	// 	.width=100,
-	// 	.pos_x=window->props.width/2 - 50,
-	// 	.pos_y=window->props.height/2 - 25,
-	// });
-	// libui_window_insert_component(window, component);
+	t_libui_env	env;
+	t_libui_window *window;
+	t_libui_component *component;
 
 	// if (!libui_get_error())
 	// 	printf("SUCCESS INITIALIZING\n");
@@ -65,14 +36,68 @@ int main(int argc, char **argv)
 	// t_libui_window *window;
 	
 	libui_init(&env);
-	// window = ft_memalloc(sizeof(t_libui_window));
-	// libui_window_init(window);
-	// window->props.title = ft_strdup("just testing stuff");
-	// window->props.flags = SDL_WINDOW_RESIZABLE;
-	// libui_window_create(&env, window);
-	// font_manager("blob the fish", "raleway", BOLD_FONT);
-	// libui_main_loop(&env);
+	window = ft_memalloc(sizeof(t_libui_window));
+	libui_window_init(window);
+	window->props.title = ft_strdup("libui window test");
+	window->props.flags = SDL_WINDOW_RESIZABLE;
+	libui_window_create(&env, window);
+	t_libui_component	*root_div;
+	root_div = libui_new_div((t_libui_style){
+		.width=window->props.width,
+		.height=window->props.height
+	});
+	component = libui_new_button((t_libui_style){
+		.height=50,
+		.width=100,
+		.pos_x=window->props.width/2 - 50,
+		.pos_y=window->props.height/2 - 25,
+	});
+	component->status.id = "FIRST";
+	component->status.class = "main-button";
+	libui_window_insert_component(window, root_div);
+	libui_component_insert_component(root_div, component);
+	component->user_events.on_click.handler = test_button_event;
+	component->user_events.on_click.arg = (void *)0xFF00FF;
+	component = libui_new_button((t_libui_style){
+		.height=50,
+		.width=100,
+		.pos_x=window->props.width/2 - 150,
+		.pos_y=window->props.height/2 - 100,
+	});
+	component->status.id = "SECOND";
+	component->status.class = "main-button special-button";
+	libui_component_insert_component(root_div, component);
+	if (!libui_get_error())
+		printf("SUCCESS INITIALIZING\n");
+	else
+		printf("ERRORS : %s\n", libui_get_error());
 
-	font_manager("/Users/azouiten/Desktop/GUImp/fonts/raleway/Raleway-ExtraLight.ttf");
+	component = libui_new_checkbox((t_libui_style){});
+	libui_component_insert_component(root_div, component);
+
+	t_libui_component	*radio_div;
+	radio_div = libui_new_div((t_libui_style){});
+	radio_div->status.id = "radio_div";
+	libui_component_insert_component(root_div, radio_div);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio1";
+	libui_component_insert_component(radio_div, component);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio2";
+	libui_component_insert_component(radio_div, component);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio3";
+	libui_component_insert_component(radio_div, component);
+
+	t_css_context	*css_context;
+
+	css_context = css_parse_file("./tests/test_css.css");
+	if (css_context)
+		printf("SUCCESS style parsed\n");
+	if (css_apply_to_window(window, css_context))
+		printf("STYLE \e[32mapplied\e[0m\n");
+	else
+		printf("STYLE \e[31merror\e[0m\n");
+	libui_main_loop(&env);
 	return (0);
 }
