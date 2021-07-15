@@ -31,6 +31,7 @@
 # include "div.h"
 # include "checkbox.h"
 # include "radio.h"
+# include "font.h"
 
 struct  s_libui_env
 {

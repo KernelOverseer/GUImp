@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   windows.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 23:04:16 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/05 17:47:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/10 16:42:21 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void        libui_window_init(t_libui_window *win)
         .title=NULL,
         .width=500,
         .height=500,
-        .pos_x=SDL_WINDOWPOS_UNDEFINED,
+        .pos_x=SDL_WINDOWPOS_UNDEFINED,// hmmm
         .pos_y=SDL_WINDOWPOS_UNDEFINED,
         .flags=SDL_WINDOW_SHOWN
     };
@@ -59,7 +59,7 @@ static int  libui_window_create_render_texture(t_libui_window *win)
         return (0);
     }
     if (!(win->sdl_texture = SDL_CreateTexture(win->sdl_renderer,
-        SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_STATIC,
+        SDL_PIXELFORMAT_RGB888, SDL_TEXTUREACCESS_STATIC,// hmmm
         win->props.width, win->props.height)))
     {
         libui_set_error("Cannot create texture for window\n");

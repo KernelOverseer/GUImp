@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   components_draw.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 19:36:12 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/10 15:18:59 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 14:28:52 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ int libui_component_draw_default(t_libui_component *component)
     ft_sdl_image_rect(window->main_image, (t_rect){component->style.pos_x,
         component->style.pos_y, component->style.width, component->style.height},
         color);
+    static TTF_Font *my_font = NULL;
+    if (!my_font)
+    {
+        my_font = TTF_OpenFont("./fonts/roboto/Roboto-Regular.ttf", 32);
+    }
+    ft_sdl_put_text("hello", (t_text){.align=ALIGN_CENTER_CENTER, .color=0x000000, .x=200, .y=200},
+        my_font, window->main_image);
     return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: azouiten <azouiten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/15 13:37:41 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/13 14:28:45 by azouiten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ int main(int argc, char **argv)
 	t_libui_window *window;
 	t_libui_component *component;
 
+	// if (!libui_get_error())
+	// 	printf("SUCCESS INITIALIZING\n");
+	// else
+	// 	printf("ERRORS : %s\n", libui_get_error());
+	// libui_main_loop(&env);
+	// return (0);
+	
+	t_libui_env	env;
+	// t_libui_window *window;
+	
 	libui_init(&env);
 	window = ft_memalloc(sizeof(t_libui_window));
 	libui_window_init(window);
