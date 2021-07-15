@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libui.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:42:51 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:12:01 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/15 13:18:44 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include "button.h"
 # include "div.h"
 # include "checkbox.h"
+# include "radio.h"
 
 struct  s_libui_env
 {

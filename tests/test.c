@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 09:29:24 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 17:33:58 by abiri            ###   ########.fr       */
+/*   Updated: 2021/07/15 13:37:41 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,20 @@ int main(int argc, char **argv)
 
 	component = libui_new_checkbox((t_libui_style){});
 	libui_component_insert_component(root_div, component);
+
+	t_libui_component	*radio_div;
+	radio_div = libui_new_div((t_libui_style){});
+	radio_div->status.id = "radio_div";
+	libui_component_insert_component(root_div, radio_div);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio1";
+	libui_component_insert_component(radio_div, component);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio2";
+	libui_component_insert_component(radio_div, component);
+	component = libui_new_radio((t_libui_style){});
+	component->status.id = "radio3";
+	libui_component_insert_component(radio_div, component);
 
 	t_css_context	*css_context;
 

@@ -79,7 +79,7 @@ retest: testclean test
 
 .PHONY: count_files
 count_files:
-	@echo "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.c" | wc -l` \x1b[0m $(_END): Source Files"
-	@echo "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.h" | wc -l` \x1b[0m $(_END): Header Files"
-	@echo "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -l` \x1b[0m $(_END): Lines of code"
-	@echo "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -c` \x1b[0m $(_END): Characters of code"
+	@echo -e "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.c" | wc -l` \x1b[0m $(_END): Source Files"
+	@echo -e "$(_BOLD)$(_lGREEN) `find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f -name "*.h" | wc -l` \x1b[0m $(_END): Header Files"
+	@echo -e "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -l` \x1b[0m $(_END): Lines of code"
+	@echo -e "$(_BOLD)$(_lGREEN) `cat \`find . \( -path ./libraries/FT_SimpleSDL/sdl2_inc -o -path ./libraries/FT_SimpleSDL/sdl2_frameworks \) -prune -false -o -type f \( -name "*.c" -o -name "*.h" \) -print \` | wc -c` \x1b[0m $(_END): Characters of code"
