@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   style.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer.pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:45:49 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 18:01:14 by abiri            ###   ########.fr       */
+/*   Updated: 2021/12/20 16:24:36 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ static void compute_basic(t_libui_style *style, t_libui_raw_style *raw)
     style->box_shadow_color = raw->box_shadow_color.value.integer;
     style->box_shadow_weight = raw->box_shadow_weight.value.integer;
     style->box_shadow_opacity = raw->box_shadow_opacity.value.decimal;
+    style->font_family = raw->font_family.value.string;
     style->font_size = raw->font_size.value.integer;
     style->font_weight = raw->font_weight.value.integer;
     style->opacity = raw->opacity.value.decimal;

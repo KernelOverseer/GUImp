@@ -20,11 +20,8 @@ int libui_init(t_libui_env  *env)
         libui_set_error("Cannot initialize the gtraphical server\n");
         return (0);
     }
-    if (TTF_Init() < 0)
-    {
-        libui_set_error("Cannot initialize font library\n");
+    if (!libui_font_manager_init(env))
         return (0);
-    }
     ttslist_init(&env->windows);
     return (1);
 }

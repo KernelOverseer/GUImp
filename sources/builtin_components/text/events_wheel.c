@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtin_commons.h                                  :+:      :+:    :+:   */
+/*   events_wheel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer.pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 00:30:07 by abiri             #+#    #+#             */
-/*   Updated: 2021/12/20 16:40:45 by abiri            ###   ########.fr       */
+/*   Created: 2021/07/07 20:01:48 by abiri             #+#    #+#             */
+/*   Updated: 2021/07/13 17:07:34 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTIN_COMMONS_H
-# define BUILTIN_COMMONS_H
-# include "libui.h"
+#include "libui.h"
 
-int libui_builtin_draw_background(t_libui_component *component);
-int libui_builtin_draw_border(t_libui_component *component);
+static int     scroll(t_libui_component *text,
+    SDL_Event *e)
+{
+    (void)text;
+    (void)e;
+    return (1);
+}
 
-#endif
+void    libui_text_load_wheel_events(t_libui_component *component)
+{
+    component->events.scroll = scroll;
+}

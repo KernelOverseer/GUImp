@@ -31,6 +31,7 @@
 # include "div.h"
 # include "checkbox.h"
 # include "radio.h"
+# include "text.h"
 # include "font.h"
 
 struct  s_libui_env
@@ -40,6 +41,7 @@ struct  s_libui_env
     t_libui_component   *active_component;
     t_libui_component   *hovered_component;
     t_libui_component   *focused_component;
+    t_font_manager      font_manager;
     int                 quit;
 };
 

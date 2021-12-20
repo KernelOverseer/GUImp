@@ -30,13 +30,13 @@ TEST_DIR = ./tests
 
 #color presets
 
-_lCYAN = \x1b[96m
-_lYELLOW = \x1b[93m
-_lGREEN = \x1b[92m
-_lBLUE = \x1b[94m
-_RED = \x1b[31m
-_BOLD = \x1b[1m
-_END = \x1b[0m
+_lCYAN = \e[1;96m
+_lYELLOW = \e[1;93m
+_lGREEN = \e[1;92m
+_lBLUE = \e[1;94m
+_RED = \e[1;31m
+_BOLD = \e[1;1m
+_END = \e[1;0m
 
 #system specific conditions
 

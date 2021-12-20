@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   style.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <abiri@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer.pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 20:53:42 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/11 03:10:55 by abiri            ###   ########.fr       */
+/*   Updated: 2021/12/20 16:13:50 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ typedef struct  s_libui_style
     Uint32              box_shadow_color;
     int                 box_shadow_weight;
     float               box_shadow_opacity;
-    // font_family to be added
+    char                *font_family;
     int                 font_size;
     int                 font_weight;
     Uint32              color;

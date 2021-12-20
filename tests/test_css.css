@@ -1,5 +1,5 @@
 * {
-    background-color: lightgrey;
+    background-color: black;
     width: 100px;
     height: 50px;
     border-radius: 25px;
@@ -7,26 +7,6 @@
 
 div {
     background-color: #FFFFFF;
-}
-
-button {
-    border-width: 2px;
-    border-color: orange;
-}
-
-#FIRST {
-    border-color: blue;
-    top: 100px;
-}
-
-.main-button {
-    background-color: lightgreen;
-}
-
-#SECOND {
-    top: 200px;
-    left: 0px;
-    background-color: lightblue;
 }
 
 checkbox {
@@ -60,4 +40,22 @@ radio {
 #radio3 {
     top: 437px;
     left: 362px;
+}
+
+#TEXT {
+    background-color: grey;
+    color: black;
+    font-family: "Raleway";
+    width: 200px;
+    height: 20px;
+}
+
+#button_label {
+    background-color: red;
+    font-family: "Raleway";
+    color: black;
+    left: inherit;
+    top: inherit;
+    width: inherit;
+    height: inherit;
 }

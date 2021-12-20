@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   css_prop_handler_map.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abiri <kerneloverseer@pm.me>               +#+  +:+       +#+        */
+/*   By: abiri <kerneloverseer.pm.me>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 02:59:09 by abiri             #+#    #+#             */
-/*   Updated: 2021/07/13 18:01:07 by abiri            ###   ########.fr       */
+/*   Updated: 2021/12/20 16:24:05 by abiri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ static int  libui_css_prop_set_colors(t_css_prop *prop, t_libui_raw_style *style
         style->box_shadow_color = css_parse_color(prop->value);
     else if (ft_strequ(prop->key, "color"))
         style->color = css_parse_color(prop->value);
+    return (1);
+}
+
+static int  libui_css_prop_set_strings(t_css_prop *prop, t_libui_raw_style *style)
+{
+    if (ft_strequ(prop->key, "font-family"))
+    {
+        style->font_family.type = STYLE_ABSOLUTE;
+        style->font_family.value.string = ft_strdup(prop->value);
+    }
     return (1);
 }
 
@@ -67,6 +77,7 @@ const t_libui_css_prop_handler_map  g_libui_css_prop_handlers[] =
     {.name="border-radius", .handler=libui_css_prop_set_numbers},
     {.name="box-shadow-weight", .handler=libui_css_prop_set_numbers},
     {.name="box-shadow-opacity", .handler=libui_css_prop_set_numbers},
+    {.name="font-family", .handler=libui_css_prop_set_strings},
     {.name="font-size", .handler=libui_css_prop_set_numbers},
     {.name="font-weight", .handler=libui_css_prop_set_numbers},
     {.name="top", .handler=libui_css_prop_set_numbers},
